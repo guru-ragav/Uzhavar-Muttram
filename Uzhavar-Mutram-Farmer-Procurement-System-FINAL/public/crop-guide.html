@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uzhavar Mutram — Visual Crop Reference Guide</title>
+  <meta name="description" content="Comprehensive visual crop reference guide for Indian agriculture. Browse cereals, pulses, oilseeds, spices, vegetables, fruits, cash crops, and specialty crops with high-quality photographs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0a0f1e;
+      --bg-card: #111827;
+      --bg-card-hover: #1a2335;
+      --bg-glass: rgba(255,255,255,0.04);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-green: #22c55e;
+      --accent-emerald: #10b981;
+      --accent-yellow: #f59e0b;
+      --accent-orange: #f97316;
+      --accent-red: #ef4444;
+      --accent-purple: #a855f7;
+      --accent-blue: #3b82f6;
+      --accent-teal: #14b8a6;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero Header ── */
+    .hero {
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 40%, #0f2027 100%);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(34,197,94,0.12) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: var(--accent-green);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #22c55e 0%, #10b981 40%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* ── Navigation ── */
+    .cat-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,15,30,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-nav::-webkit-scrollbar { display: none; }
+    .cat-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 18px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .cat-nav a:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--accent-green);
+    }
+
+    /* ── Main Container ── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* ── Category Section ── */
+    .category-section {
+      margin-bottom: 80px;
+    }
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .cat-emoji { font-size: 2.4rem; }
+    .cat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .cat-badge {
+      margin-left: auto;
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: var(--accent-green);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .cat-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      padding-left: 56px;
+      line-height: 1.6;
+    }
+    .cat-divider {
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-green), transparent);
+      margin-bottom: 32px;
+      border-radius: 2px;
+    }
+
+    /* ── Hero Image Banner ── */
+    .cat-hero-img {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 36px;
+      position: relative;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .cat-hero-img img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .cat-hero-img:hover img { transform: scale(1.02); }
+    .cat-hero-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+      padding: 24px 24px 20px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      font-style: italic;
+    }
+    .cat-hero-img-caption strong {
+      color: var(--accent-green);
+      font-style: normal;
+    }
+
+    /* ── Crop Grid ── */
+    .crop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── Crop Card ── */
+    .crop-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      cursor: default;
+    }
+    .crop-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border-color: rgba(34,197,94,0.3);
+      background: var(--bg-card-hover);
+    }
+
+    .crop-img-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #0d1526;
+    }
+    .crop-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .crop-card:hover .crop-img-wrapper img { transform: scale(1.08); }
+
+    .crop-stage-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .stage-field { color: #86efac; border-color: rgba(134,239,172,0.3); }
+    .stage-harvest { color: #fcd34d; border-color: rgba(252,211,77,0.3); }
+    .stage-processed { color: #fb923c; border-color: rgba(251,146,60,0.3); }
+
+    .crop-body {
+      padding: 18px 20px 20px;
+    }
+    .crop-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .crop-local {
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .crop-caption {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .crop-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .crop-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .crop-meta-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+    .crop-meta-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+      min-width: 52px;
+      flex-shrink: 0;
+    }
+
+    .crop-use-chip {
+      display: inline-block;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      color: var(--accent-green);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 50px;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Fallback image (emoji + gradient) ── */
+    .crop-img-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 4rem;
+    }
+    .crop-img-fallback span { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Category-specific accent colors */
+    .cat-cereals .cat-divider { background: linear-gradient(90deg, #f59e0b, transparent); }
+    .cat-cereals .cat-badge { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.25); color: #f59e0b; }
+    .cat-cereals .crop-card:hover { border-color: rgba(245,158,11,0.3); }
+    .cat-cereals .crop-local, .cat-cereals .crop-use-chip { color: #f59e0b; }
+    .cat-cereals .crop-use-chip { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
+
+    .cat-pulses .cat-divider { background: linear-gradient(90deg, #a855f7, transparent); }
+    .cat-pulses .cat-badge { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.25); color: #a855f7; }
+    .cat-pulses .crop-card:hover { border-color: rgba(168,85,247,0.3); }
+    .cat-pulses .crop-local, .cat-pulses .crop-use-chip { color: #a855f7; }
+    .cat-pulses .crop-use-chip { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.2); }
+
+    .cat-oilseeds .cat-divider { background: linear-gradient(90deg, #f97316, transparent); }
+    .cat-oilseeds .cat-badge { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.25); color: #f97316; }
+    .cat-oilseeds .crop-card:hover { border-color: rgba(249,115,22,0.3); }
+    .cat-oilseeds .crop-local, .cat-oilseeds .crop-use-chip { color: #f97316; }
+    .cat-oilseeds .crop-use-chip { background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.2); }
+
+    .cat-spices .cat-divider { background: linear-gradient(90deg, #ef4444, transparent); }
+    .cat-spices .cat-badge { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.25); color: #ef4444; }
+    .cat-spices .crop-card:hover { border-color: rgba(239,68,68,0.3); }
+    .cat-spices .crop-local, .cat-spices .crop-use-chip { color: #ef4444; }
+    .cat-spices .crop-use-chip { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.2); }
+
+    .cat-vegetables .cat-divider { background: linear-gradient(90deg, #22c55e, transparent); }
+    .cat-vegetables .cat-badge { background: rgba(34,197,94,0.12); border-color: rgba(34,197,94,0.25); color: #22c55e; }
+
+    .cat-fruits .cat-divider { background: linear-gradient(90deg, #fb923c, transparent); }
+    .cat-fruits .cat-badge { background: rgba(251,146,60,0.12); border-color: rgba(251,146,60,0.25); color: #fb923c; }
+    .cat-fruits .crop-card:hover { border-color: rgba(251,146,60,0.3); }
+    .cat-fruits .crop-local, .cat-fruits .crop-use-chip { color: #fb923c; }
+    .cat-fruits .crop-use-chip { background: rgba(251,146,60,0.1); border-color: rgba(251,146,60,0.2); }
+
+    .cat-cash .cat-divider { background: linear-gradient(90deg, #14b8a6, transparent); }
+    .cat-cash .cat-badge { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.25); color: #14b8a6; }
+    .cat-cash .crop-card:hover { border-color: rgba(20,184,166,0.3); }
+    .cat-cash .crop-local, .cat-cash .crop-use-chip { color: #14b8a6; }
+    .cat-cash .crop-use-chip { background: rgba(20,184,166,0.1); border-color: rgba(20,184,166,0.2); }
+
+    .cat-other .cat-divider { background: linear-gradient(90deg, #3b82f6, transparent); }
+    .cat-other .cat-badge { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.25); color: #3b82f6; }
+    .cat-other .crop-card:hover { border-color: rgba(59,130,246,0.3); }
+    .cat-other .crop-local, .cat-other .crop-use-chip { color: #3b82f6; }
+    .cat-other .crop-use-chip { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.2); }
+
+    /* ── Footer ── */
+    .footer {
+      background: #060d1a;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--accent-green); margin-bottom: 8px; }
+    .footer-sub { font-size: 0.82rem; color: var(--text-muted); }
+    .footer-link { color: var(--accent-green); text-decoration: none; }
+    .footer-link:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 40px 20px 36px; }
+      .cat-hero-img img { height: 260px; }
+      .crop-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-badge">🌾 Agricultural Reference Database</div>
+  <h1>Indian Crop Visual Reference Guide</h1>
+  <p class="hero-sub">
+    A comprehensive photographic reference spanning India's major crop categories — from staple cereals and protein-rich pulses to aromatic spices, tropical fruits, and industrial cash crops.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">45+</div><div class="hero-stat-label">Crop Varieties</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Categories</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-label">Photo Quality</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">India-Focused</div></div>
+  </div>
+</section>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="cat-nav">
+  <a href="#cereals">🌾 Cereals</a>
+  <a href="#pulses">🫘 Pulses</a>
+  <a href="#oilseeds">🌻 Oilseeds</a>
+  <a href="#spices">🌶️ Spices</a>
+  <a href="#vegetables">🥦 Vegetables</a>
+  <a href="#fruits">🍎 Fruits</a>
+  <a href="#cash">💰 Cash Crops</a>
+  <a href="#other">🌿 Specialty</a>
+</nav>
+
+<main class="container">
+
+<!-- ══════════════════════════════════════
+     🌾 CEREALS
+══════════════════════════════════════ -->
+<section id="cereals" class="category-section cat-cereals">
+  <div class="cat-header">
+    <span class="cat-emoji">🌾</span>
+    <h2 class="cat-title">Cereals</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">The backbone of Indian food security. Cereal crops provide starchy grains that form the primary caloric staple for over a billion people, cultivated across diverse agro-climatic zones from Punjab's wheat plains to Tamil Nadu's paddy deltas.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/cereals_crops.jpg" alt="Six major Indian cereal crops: Wheat, Paddy Rice, Maize, Sorghum, Pearl Millet, and Finger Millet shown in field/growth stage" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Field Stage:</strong> Wheat (rabi, harvested), Paddy Rice (flooded field), Maize (cob formation), Sorghum (grain head), Pearl Millet (spike), Finger Millet (curved grain head). AI-generated photorealistic reference images.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/200px-Camponotus_flavomarginatus_ant.jpg"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#78350f,#92400e)\'>🌾<span>Wheat — Triticum aestivum</span></div>'"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Wheat_field_1.jpg/320px-Wheat_field_1.jpg"
+          alt="Golden wheat field at harvest — harvested grain form showing characteristic grain head structure" loading="lazy" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Wheat</div>
+        <div class="crop-local">Gehu (गेहूँ) · Triticum aestivum</div>
+        <div class="crop-caption">Golden grain heads at maturity — the characteristic bearded ear visible. Rabi (winter) crop harvested March–April.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Punjab, Haryana, UP, MP, Rajasthan</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — chapati, bread, pasta, semolina</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Long bearded golden ear; hollow straw stem</div>
+        </div>
+        <span class="crop-use-chip">Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper" style="background:linear-gradient(135deg,#14532d,#166534)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rice_and_husked_rice.jpg/320px-Rice_and_husked_rice.jpg"
+          alt="Flooded paddy rice field — field/growth stage showing reflective water surface with green shoots" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#166534)\'>🌿<span>Paddy — Oryza sativa</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Paddy (Rice)</div>
+        <div class="crop-local">Chawal / Nellikai · Oryza sativa</div>
+        <div class="crop-caption">Flooded paddy fields with transplanted seedlings — characteristic reflective water cultivation. India's most cultivated cereal.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> West Bengal, Punjab, TN, AP, Kerala</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — rice, idli, dosa, biryani, rice flour</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Long leaf blade; drooping grain panicle</div>
+        </div>
+        <span class="crop-use-chip">Food Staple</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper" style="background:linear-gradient(135deg,#365314,#3f6212)">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Maize_seeds.jpg/320px-Maize_seeds.jpg"
+          alt="Maize corn ears on stalk — harvested form showing yellow kernels on cob" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#3f6212)\'>🌽<span>Maize — Zea mays</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Maize (Corn)</div>
+        <div class="crop-local">Makka (मक्का) · Zea mays</div>
+        <div class="crop-caption">Yellow grain ears harvested from tall stalks. India's 3rd most important cereal, grown in Kharif and Rabi seasons.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Karnataka, MP, Maharashtra, Bihar, Rajasthan</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food, Feed, Starch, Biofuel, Popcorn</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Distinctive silk tassel; large yellow grain cob</div>
+        </div>
+        <span class="crop-use-chip">Food / Feed</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper" style="background:linear-gradient(135deg,#78350f,#92400e)">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#451a03,#78350f)">🌾<span>Sorghum (Jowar)</span></div>
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Sorghum (Jowar)</div>
+        <div class="crop-local">Jowar (ज्वार) / Cholam · Sorghum bicolor</div>
+        <div class="crop-caption">Compact cream-white grain panicles atop tall drought-tolerant stalks. India's 4th most cultivated cereal; a major dryland staple.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra, Karnataka, Rajasthan, MP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food, Feed, Fodder, Brewery, Biofuel</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Compact ovoid panicle; drought-resistant thick stalk</div>
+        </div>
+        <span class="crop-use-chip">Food / Fodder</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#1c1917,#44403c)">🌾<span>Pearl Millet (Bajra)</span></div>
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Pearl Millet (Bajra)</div>
+        <div class="crop-local">Bajra (बाजरा) / Kambu · Pennisetum glaucum</div>
+        <div class="crop-caption">Cylindrical spike with tiny round grains. Most drought-tolerant cereal; critical food security crop for arid India.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, Gujarat, Haryana, Maharashtra</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food, Feed — bhakri, roti; malt beverages</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Long cylindrical purple-brown spike (30–50 cm)</div>
+        </div>
+        <span class="crop-use-chip">Food / Feed</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#1e3a1e,#14532d)">🌾<span>Finger Millet (Ragi)</span></div>
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Finger Millet (Ragi)</div>
+        <div class="crop-local">Ragi (रागी) / Kelvaragu · Eleusine coracana</div>
+        <div class="crop-caption">Dark reddish-brown curved grain fingers at the spike apex. Highest calcium content of all cereals; major superfood grain.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Karnataka, Tamil Nadu, Maharashtra, Andhra Pradesh</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — mudde, ragi dosa, health foods, malt</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 4–8 curved brown finger-like grain heads at apex</div>
+        </div>
+        <span class="crop-use-chip">Food / Health</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🫘 PULSES
+══════════════════════════════════════ -->
+<section id="pulses" class="category-section cat-pulses">
+  <div class="cat-header">
+    <span class="cat-emoji">🫘</span>
+    <h2 class="cat-title">Pulses</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">Protein powerhouses of Indian cuisine. Pulse crops fix atmospheric nitrogen, enriching soil while providing high-quality plant protein essential for vegetarian diets. India is the world's largest producer and consumer of pulses.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/pulses_crops.jpg" alt="Six major Indian pulse crops: Chickpea, Pigeon Pea, Green Gram, Black Gram, Red Lentils, and Kidney Beans shown in field and harvested stages" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Field & Harvested:</strong> Chickpea/Chana (field), Pigeon Pea/Arhar (pods), Green Gram/Moong (vine), Black Gram/Urad (dried pods), Red Lentils/Masoor (split), Kidney Beans/Rajma (pod + beans). AI-generated photorealistic reference images.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Chickpea_in_a_field.jpg/320px-Chickpea_in_a_field.jpg"
+          alt="Chickpea plant with beige pods in field — field/growth stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#854d0e)\'>🫘<span>Chickpea — Cicer arietinum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Chickpea (Chana)</div>
+        <div class="crop-local">Chana (चना) / Kadalai · Cicer arietinum</div>
+        <div class="crop-caption">Small beige pods on bushy low-growing plants. India's #1 pulse crop by production volume; available as kabuli and desi varieties.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> MP, Rajasthan, Maharashtra, UP, Andhra Pradesh</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — dal, chhole, besan, hummus, roasted snacks</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Swollen 1–2 seed pods; serrated pinnate leaves</div>
+        </div>
+        <span class="crop-use-chip">Protein Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pigeon_peas.jpg/320px-Pigeon_peas.jpg"
+          alt="Pigeon pea/arhar plant with clustered tan-green pods — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#3f6212)\'>🫘<span>Pigeon Pea — Cajanus cajan</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Pigeon Pea (Arhar/Tur)</div>
+        <div class="crop-local">Arhar Dal / Thuvaram · Cajanus cajan</div>
+        <div class="crop-caption">Clustered tan-green pods on tall woody perennial shrub. The base of India's beloved "dal tadka"; India produces 85% of world supply.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra, Karnataka, MP, Gujarat, UP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — toor dal, sambhar; nitrogen fixing cover crop</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Woody shrub; flat pods with purple tinge at maturity</div>
+        </div>
+        <span class="crop-use-chip">Protein / Nitrogen</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Vigna_radiata_val_radiata.jpg/320px-Vigna_radiata_val_radiata.jpg"
+          alt="Green gram moong bean vine with bright green pods — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#166534)\'>🌿<span>Green Gram — Vigna radiata</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Green Gram (Moong)</div>
+        <div class="crop-local">Moong (मूंग) / Payatham · Vigna radiata</div>
+        <div class="crop-caption">Slender bright-green pods clustered along trailing vine. Short-duration 60-day crop ideal for summer/rabi rotation; excellent nutritional profile.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, Maharashtra, AP, Karnataka, Bihar</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — dal, sprouts, khichdi, green moong curry</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Thin 7–10cm pods; bright green seed with glossy coat</div>
+        </div>
+        <span class="crop-use-chip">Food / Sprouts</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#1c1917,#292524)">🖤<span>Black Gram — Vigna mungo</span></div>
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Black Gram (Urad)</div>
+        <div class="crop-local">Urad Dal (उड़द) / Ulundu · Vigna mungo</div>
+        <div class="crop-caption">Dark black-seeded pods on slender trailing vine. Responsible for idli and dosa batter; high mucilage content aids fermentation.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> UP, MP, Tamil Nadu, Andhra Pradesh, Rajasthan</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — urad dal, idli-dosa batter, dal makhani, papad</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Jet-black seed with white hilum; hairy cylindrical pods</div>
+        </div>
+        <span class="crop-use-chip">Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Red_Lentils.jpg/320px-Red_Lentils.jpg"
+          alt="Red lentils split form showing orange-red color — processed form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7f1d1d,#991b1b)\'>🔴<span>Red Lentil — Lens culinaris</span></div>'" />
+        <span class="crop-stage-badge stage-processed">🟠 Processed</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Red Lentil (Masoor)</div>
+        <div class="crop-local">Masoor (मसूर) / Mysore Paruppu · Lens culinaris</div>
+        <div class="crop-caption">Split lentils show characteristic salmon-orange color. Fastest-cooking pulse; brown whole seeds turn orange-red when dehulled.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> UP, Bihar, West Bengal, MP, Rajasthan</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — masoor dal, soup, dal fry, red lentil curry</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Lens-shaped brown pod; split seeds show orange-red</div>
+        </div>
+        <span class="crop-use-chip">Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#450a0a,#7f1d1d)">🫘<span>Kidney Bean — Phaseolus vulgaris</span></div>
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Kidney Bean (Rajma)</div>
+        <div class="crop-local">Rajma (राजमा) / Rajma · Phaseolus vulgaris</div>
+        <div class="crop-caption">Large dark-red kidney-shaped beans fresh from pale-green pods. A beloved North Indian dish staple; high protein and complex carbohydrate content.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Jammu & Kashmir, Himachal Pradesh, Punjab, Uttarakhand</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food — rajma curry, salads, burritos, mixed dal</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Distinctive kidney shape; dark-red speckled seed coat</div>
+        </div>
+        <span class="crop-use-chip">Protein Food</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🌻 OILSEEDS
+══════════════════════════════════════ -->
+<section id="oilseeds" class="category-section cat-oilseeds">
+  <div class="cat-header">
+    <span class="cat-emoji">🌻</span>
+    <h2 class="cat-title">Oilseeds</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">India is among the world's top oilseed producers. These crops yield edible oils for cooking, industrial lubricants, biodiesel, and soaps — spanning groundnut fields of Gujarat to mustard plains of Rajasthan.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/oilseeds_crops.jpg" alt="Six major Indian oilseed crops: Groundnut, Sunflower, Mustard, Soybean, Sesame, and Castor shown in field stage" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Field Stage:</strong> Groundnut/peanut (soil-level root pods), Sunflower (yellow field), Mustard (blooming yellow field), Soybean (green pods), Sesame/Til (white pod column), Castor (spiky seed cluster). AI-generated photorealistic reference.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Arachis1.jpg/320px-Arachis1.jpg"
+          alt="Groundnut peanut pods freshly dug with roots — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#78350f,#92400e)\'>🥜<span>Groundnut — Arachis hypogaea</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Groundnut (Peanut)</div>
+        <div class="crop-local">Moongphali (मूंगफली) / Nilakadalai · Arachis hypogaea</div>
+        <div class="crop-caption">Uniquely geocarpic — flowers above ground, pods develop underground. Wrinkled tan pod with 2–3 seeds harvested by uprooting entire plant.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Gujarat, Rajasthan, Tamil Nadu, Andhra Pradesh</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Edible oil, peanut butter, roasted snacks, cattle feed</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Underground pod with net-like reticulate surface</div>
+        </div>
+        <span class="crop-use-chip">Oil / Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/320px-Sunflower_sky_backdrop.jpg"
+          alt="Sunflower with large seed-filled head against blue sky — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#ca8a04)\'>🌻<span>Sunflower — Helianthus annuus</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Sunflower</div>
+        <div class="crop-local">Surajmukhi (सूरजमुखी) · Helianthus annuus</div>
+        <div class="crop-caption">Large 20–30cm circular flower head packed with black-white seeds following the sun (heliotropism). One of the cleanest edible oils.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Karnataka, Andhra Pradesh, Maharashtra, Odisha</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Edible oil, confectionery seeds, bird seed, biodiesel</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Large circular yellow-ray floret head; rough stem</div>
+        </div>
+        <span class="crop-use-chip">Oil</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Brassica_napus_2.jpg/320px-Brassica_napus_2.jpg"
+          alt="Bright yellow mustard rapeseed field in full bloom — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#ca8a04)\'>🟡<span>Mustard — Brassica juncea</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Mustard (Sarson)</div>
+        <div class="crop-local">Sarson / Rai (सरसों) · Brassica juncea</div>
+        <div class="crop-caption">Iconic bright-yellow flowering fields — the classic Indian winter landscape. Slender siliqua pods with tiny round seeds rich in pungent oil.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, Haryana, UP, MP, West Bengal</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Mustard oil (cooking), seeds (spice), greens (saag)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Four-petal cross-shaped yellow flowers; slender siliqua</div>
+        </div>
+        <span class="crop-use-chip">Oil / Spice</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Soybean_seeds.jpg/320px-Soybean_seeds.jpg"
+          alt="Soybean plant with fuzzy green pods — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#15803d)\'>🫛<span>Soybean — Glycine max</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Soybean</div>
+        <div class="crop-local">Soyabean (सोयाबीन) · Glycine max</div>
+        <div class="crop-caption">Hairy tri-foliate leaves with fuzzy ovoid pods. World's richest protein legume; India's crop transformed Maharashtra's Vidarbha economy.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Madhya Pradesh, Maharashtra, Rajasthan, Karnataka</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Soy oil, tofu, soymilk, animal feed, biodiesel</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Densely hairy stems and pods; tri-foliate leaf</div>
+        </div>
+        <span class="crop-use-chip">Oil / Protein</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#292524,#44403c)">🌿<span>Sesame — Sesamum indicum</span></div>
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Sesame (Til)</div>
+        <div class="crop-local">Til (तिल) / Ellu · Sesamum indicum</div>
+        <div class="crop-caption">World's oldest oilseed. Rectangular white pod capsules arranged vertically along stem burst open when ripe — origin of "Open Sesame!"</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, Gujarat, Tamil Nadu, West Bengal, UP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Sesame oil, tahini, til ladoo, bread topping, cosmetics</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Rectangular 4-valved capsules; white/black seed varieties</div>
+        </div>
+        <span class="crop-use-chip">Oil / Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <div class="crop-img-fallback" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">🌿<span>Castor — Ricinus communis</span></div>
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Castor</div>
+        <div class="crop-local">Arand (अरंड) / Amanakku · Ricinus communis</div>
+        <div class="crop-caption">Spiky reddish-green seed clusters on tall ornamental plants. India supplies 80%+ of global castor oil — essential for industrial lubrication.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Gujarat, Rajasthan, Andhra Pradesh (India = #1 globally)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Industrial oil, biodiesel, cosmetics, plastics, Nylon-11</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Large palmate leaves; spiny reddish-brown capsule clusters</div>
+        </div>
+        <span class="crop-use-chip">Industrial Oil</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🌶️ SPICES
+══════════════════════════════════════ -->
+<section id="spices" class="category-section cat-spices">
+  <div class="cat-header">
+    <span class="cat-emoji">🌶️</span>
+    <h2 class="cat-title">Spices</h2>
+    <span class="cat-badge">8 Crops</span>
+  </div>
+  <p class="cat-desc">India — the "Spice Capital of the World" — produces 75% of global spice varieties. These crops define Indian cuisine's aroma, color, and medicinal character, from Kerala's black pepper to Erode's turmeric.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/spices_crops.jpg" alt="Six major Indian spice crops: Turmeric rhizomes, Red Chili peppers, Coriander herb, Cumin seeds, Black Pepper vine, and Ginger root — harvested and processed forms" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Harvested & Processed:</strong> Turmeric (sliced rhizome, orange-yellow), Red Chili (ripe on plant), Coriander (fresh herb + seeds), Cumin/Jeera (dried seeds), Black Pepper (vine with clusters), Ginger (root cut to reveal yellow flesh). AI-generated photorealistic reference.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Curcuma_longa_roots.jpg/320px-Curcuma_longa_roots.jpg"
+          alt="Fresh turmeric rhizomes with orange-yellow flesh exposed — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#ca8a04)\'>🟡<span>Turmeric — Curcuma longa</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Turmeric</div>
+        <div class="crop-local">Haldi (हल्दी) / Manjal · Curcuma longa</div>
+        <div class="crop-caption">Finger-like rhizomes with rough brown skin concealing vivid orange-yellow flesh. Curcumin provides anti-inflammatory & antimicrobial properties.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Andhra Pradesh, Tamil Nadu (Erode = "Turmeric City"), Odisha</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Spice, medicine, dyeing, cosmetics, curry powder</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Intensely orange-yellow flesh; earthy pungent aroma</div>
+        </div>
+        <span class="crop-use-chip">Spice / Medicine</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Capsicum_annuum_fruits.jpg/320px-Capsicum_annuum_fruits.jpg"
+          alt="Vivid red chili peppers ripening on plant — field/growth stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7f1d1d,#b91c1c)\'>🌶️<span>Chili — Capsicum annuum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Chili Pepper</div>
+        <div class="crop-local">Mirchi (मिर्ची) / Milagai · Capsicum annuum</div>
+        <div class="crop-caption">Vivid red fruits ripening from green on bushy plants. Capsaicin creates the heat. India exports 1M+ tonnes annually; Guntur is world's largest chili market.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Andhra Pradesh (Guntur), Rajasthan, Karnataka, MP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh vegetable, dried spice, paprika, hot sauce, pickle</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Elongated fruit turning red; white pith with capsaicin glands</div>
+        </div>
+        <span class="crop-use-chip">Spice / Vegetable</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Coriander.jpg/320px-Coriander.jpg"
+          alt="Fresh coriander herb with white flowers and round green seeds — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#15803d)\'>🌿<span>Coriander — Coriandrum sativum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Coriander (Dhania)</div>
+        <div class="crop-local">Dhania (धनिया) / Kothamalli · Coriandrum sativum</div>
+        <div class="crop-caption">Bipinnate aromatic leaves with small white umbel flowers producing round aromatic seeds. Dual-use crop — fresh herb leaves and dried seed spice both valued.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, MP, Andhra Pradesh, Gujarat, Tamil Nadu</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh garnish, seed spice, essential oil, medicinal</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Rounded ribbed seed; lacy upper leaves vs lobed lower</div>
+        </div>
+        <span class="crop-use-chip">Spice / Herb</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Cuminum_cyminum.jpg/320px-Cuminum_cyminum.jpg"
+          alt="Cumin jeera seeds dried in wooden spoon — processed form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#292524,#57534e)\'>🟤<span>Cumin — Cuminum cyminum</span></div>'" />
+        <span class="crop-stage-badge stage-processed">🟠 Processed</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Cumin (Jeera)</div>
+        <div class="crop-local">Jeera (जीरा) / Jeeragam · Cuminum cyminum</div>
+        <div class="crop-caption">Tiny boat-shaped ridged seeds with an intensely warm, earthy aroma. India produces 70% of world supply; Gujarat's Unjha is the global cumin trading hub.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Rajasthan, Gujarat (India = 70% of world production)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Tempering/tadka, spice blends, cumin water, digestive aid</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 5–6 ridges on elongated brown boat-shaped seed</div>
+        </div>
+        <span class="crop-use-chip">Spice</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Piper_nigrum_Blanco1.12-cropped.jpg/320px-Piper_nigrum_Blanco1.12-cropped.jpg"
+          alt="Black pepper vine with green-red peppercorn clusters — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#1c1917,#292524)\'>⚫<span>Black Pepper — Piper nigrum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Black Pepper</div>
+        <div class="crop-local">Kali Mirch (काली मिर्च) / Milagu · Piper nigrum</div>
+        <div class="crop-caption">Woody climbing vine with pendant green-to-red peppercorn spikes. The "King of Spices" — drove ancient trade routes; Kerala's Wayanad is the heartland.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala, Karnataka, Tamil Nadu (Malabar Coast)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Spice (black/white/green), essential oil, piperine supplement</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 10–15cm pendant spike; round drupe green→red→black</div>
+        </div>
+        <span class="crop-use-chip">Spice / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Ginger_plant.jpg/320px-Ginger_plant.jpg"
+          alt="Fresh ginger rhizome root cut open showing pale yellow flesh — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#65a30d)\'>🫚<span>Ginger — Zingiber officinale</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Ginger</div>
+        <div class="crop-local">Adrak (अदरक) / Inji · Zingiber officinale</div>
+        <div class="crop-caption">Knobbly beige rhizomes with pale-yellow flesh and pungent gingerol. Subterranean rhizome harvested fresh or dried; ubiquitous in chai and ayurveda.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala, Karnataka, Assam, Meghalaya, Andhra Pradesh</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Spice, ginger tea/chai, candy, essential oil, medicine</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Gnarled knobby rhizome; fibrous pale-yellow interior</div>
+        </div>
+        <span class="crop-use-chip">Spice / Medicine</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🥦 VEGETABLES
+══════════════════════════════════════ -->
+<section id="vegetables" class="category-section cat-vegetables">
+  <div class="cat-header">
+    <span class="cat-emoji">🥦</span>
+    <h2 class="cat-title">Vegetables</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">India is the world's 2nd largest vegetable producer. These horticulture crops provide essential vitamins, minerals, and dietary fiber — grown in kitchen gardens, terrace farms, and large commercial fields year-round.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/vegetables_crops.jpg" alt="Six major Indian vegetable crops: Tomato, Onion, Potato, Brinjal/Eggplant, Okra/Bhindi, and Cauliflower shown in harvested and field stages" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Harvested & Field Stage:</strong> Tomato (vine-ripened), Onion (fresh harvest), Potato (dug with soil), Brinjal/Eggplant (on plant), Okra/Bhindi (plant with flower), Cauliflower (large head). AI-generated photorealistic reference.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bright_red_tomato_and_cross_section02.jpg/320px-Bright_red_tomato_and_cross_section02.jpg"
+          alt="Ripe red tomatoes on vine — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7f1d1d,#b91c1c)\'>🍅<span>Tomato — Solanum lycopersicum</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Tomato</div>
+        <div class="crop-local">Tamatar (टमाटर) / Thakkali · Solanum lycopersicum</div>
+        <div class="crop-caption">Smooth red-skinned berries in trusses. The most widely consumed vegetable globally; rich in lycopene antioxidant. Technically a fruit botanically.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Andhra Pradesh, Karnataka, Maharashtra, Odisha, UP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Cooking, sauces, salads, puree, ketchup, juicing</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 5-lobed calyx star; red when ripe; watery locules inside</div>
+        </div>
+        <span class="crop-use-chip">Vegetable / Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Onions.jpg/320px-Onions.jpg"
+          alt="Fresh harvested red-purple onions — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#4c0519,#881337)\'>🧅<span>Onion — Allium cepa</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Onion</div>
+        <div class="crop-local">Pyaz (प्याज) / Vengayam · Allium cepa</div>
+        <div class="crop-caption">Layered spherical bulbs with papery copper-red or white skin. A kitchen essential whose price fluctuations impact Indian politics — critical commercial crop.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra (Nashik), Madhya Pradesh, Karnataka, Gujarat</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Cooking base, salads, pickles, dehydrated onion export</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Hollow cylindrical leaves; fleshy concentric bulb layers</div>
+        </div>
+        <span class="crop-use-chip">Vegetable</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Patates.jpg/320px-Patates.jpg"
+          alt="Fresh dug potatoes with soil — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#292524,#57534e)\'>🥔<span>Potato — Solanum tuberosum</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Potato</div>
+        <div class="crop-local">Aloo (आलू) / Urulaikizhangu · Solanum tuberosum</div>
+        <div class="crop-caption">Starchy underground tubers with eyes. India's most consumed vegetable; subterranean stem tubers identified by irregular shape and shallow buds.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Uttar Pradesh, West Bengal, Bihar, Gujarat, MP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Cooking (all forms), chips, starch, alcohol, livestock feed</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Irregular oval tuber; shallow "eye" axillary buds</div>
+        </div>
+        <span class="crop-use-chip">Staple Vegetable</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Aubergine.jpg/320px-Aubergine.jpg"
+          alt="Dark purple brinjal eggplant on plant — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#1e1b4b,#312e81)\'>🍆<span>Brinjal — Solanum melongena</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Brinjal (Eggplant)</div>
+        <div class="crop-local">Baingan (बैंगन) / Kathirikkai · Solanum melongena</div>
+        <div class="crop-caption">Glossy deep-purple ovoid fruits on bushy thorny plants. Varieties range from tiny round green to large white elongated — baigan bharta, bharwan baingan.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Bihar, Karnataka, Odisha, Maharashtra, West Bengal</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Curries, grilled, stuffed, bharta, sambhar, tempura</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Calyx with star pattern; glossy deep-purple skin</div>
+        </div>
+        <span class="crop-use-chip">Vegetable</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Okra_with_stem.jpg/320px-Okra_with_stem.jpg"
+          alt="Fresh green okra bhindi pods on plant — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#166534)\'>💚<span>Okra — Abelmoschus esculentus</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Okra (Bhindi)</div>
+        <div class="crop-local">Bhindi (भिण्डी) / Vendaikkai · Abelmoschus esculentus</div>
+        <div class="crop-caption">Ridged green finger-pods with characteristic mucilaginous texture. Hibiscus family — beautiful yellow flowers precede fruit; harvest at 5–7 day intervals.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra, Andhra Pradesh, Bihar, Gujarat, Karnataka</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Curries, stir-fry, pickling, stuffed okra, export (fresh/frozen)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 5-ridged green finger pod; large yellow hibiscus flower</div>
+        </div>
+        <span class="crop-use-chip">Vegetable</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cauliflower_2.jpg/320px-Cauliflower_2.jpg"
+          alt="Large white cauliflower curd head with green leaves — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#ecfdf5,#d1fae5)\' style=\'color:#065f46\'>🥦<span>Cauliflower — Brassica oleracea</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Cauliflower</div>
+        <div class="crop-local">Phool Gobhi (फूल गोभी) / Kovippu · Brassica oleracea var. botrytis</div>
+        <div class="crop-caption">Dense white "curd" of undeveloped flower tissue wrapped in protective green leaves. Crisp textured head; purple and orange varieties becoming popular.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> West Bengal, Bihar, Maharashtra, Odisha, Gujarat</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Cooking, aloo-gobhi, pickles, pizza crust substitute</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Tight white dome (curd); large blue-green outer leaves</div>
+        </div>
+        <span class="crop-use-chip">Vegetable</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🍎 FRUITS
+══════════════════════════════════════ -->
+<section id="fruits" class="category-section cat-fruits">
+  <div class="cat-header">
+    <span class="cat-emoji">🍎</span>
+    <h2 class="cat-title">Fruits</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">India's tropical climate nurtures the world's richest diversity of fruits. From the royal mango to the humble guava, these crops represent horticulture wealth and export value, supporting millions of orchard farming families.</p>
+  <div class="cat-divider"></div>
+
+  <div class="cat-hero-img">
+    <img src="/images/crop-guide/fruits_crops.jpg" alt="Six major Indian fruit crops: Mango cut open, Banana bunch on plant, Papaya halved, Guava cut, Coconut opened, Pomegranate split — harvested forms" loading="lazy" />
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Harvested Form:</strong> Mango (golden-orange flesh revealed), Banana (yellow bunch on plant), Papaya (halved with black seeds), Guava (cut revealing white flesh), Coconut (opened with water), Pomegranate (split showing red arils). AI-generated photorealistic reference.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Hapus_Mango.jpg/320px-Hapus_Mango.jpg"
+          alt="Ripe Alphonso mango golden-yellow — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#ca8a04)\'>🥭<span>Mango — Mangifera indica</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Mango</div>
+        <div class="crop-local">Aam (आम) / Maambazham · Mangifera indica</div>
+        <div class="crop-caption">The "King of Fruits" — golden-orange flesh of the Alphonso variety. India produces 40%+ of world's mangoes; 1,500+ named varieties from Alphonso to Dasheri.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> UP, Andhra Pradesh, Karnataka, Bihar, Gujarat, TN</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh eat, juice, pickle, amchur (dry), chutney, pulp export</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Single flat seed; yellow-orange sweet aromatic flesh</div>
+        </div>
+        <span class="crop-use-chip">Fruit / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Bunch.jpg/320px-Banana-Bunch.jpg"
+          alt="Yellow banana bunch on plant — field/growth stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#ca8a04)\'>🍌<span>Banana — Musa spp.</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Banana</div>
+        <div class="crop-local">Kela (केला) / Vazhai · Musa acuminata/balbisiana</div>
+        <div class="crop-caption">Pendant bunches of curved elongated fruits on the pseudostem. Technically a herb, not a tree. India is the world's #1 banana producer.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Tamil Nadu (Trichy), AP, Maharashtra, Karnataka, Gujarat</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh, cooked (green), chips, banana bread, export</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Crescent-shaped fruit; purplish-red pendant flower head</div>
+        </div>
+        <span class="crop-use-chip">Fruit</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Carica_papaya_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-029.jpg/320px-Carica_papaya_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-029.jpg"
+          alt="Papaya halved showing orange flesh and black seeds — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7c2d12,#c2410c)\'>🟠<span>Papaya — Carica papaya</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Papaya</div>
+        <div class="crop-local">Papita (पपीता) / Pappali · Carica papaya</div>
+        <div class="crop-caption">Orange-fleshed tropical fruit with central cavity of black seeds. Rich in papain enzyme used for meat tenderizing; grows on single trunk palm-like plant.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Andhra Pradesh, Karnataka, Gujarat, Maharashtra, Odisha</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh, juice, salad (green), papain enzyme extraction</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Central seed cavity; bright orange flesh when ripe</div>
+        </div>
+        <span class="crop-use-chip">Fruit / Enzyme</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Guava_ID.jpg/320px-Guava_ID.jpg"
+          alt="Ripe guava whole and halved showing white flesh — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#65a30d)\'>💚<span>Guava — Psidium guajava</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Guava</div>
+        <div class="crop-local">Amrood (अमरूद) / Koyya · Psidium guajava</div>
+        <div class="crop-caption">Round-oval fruits with thin yellow-green skin and white-pink firm flesh. Exceptionally high in Vitamin C — 4× more than oranges; the "poor man's apple."</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Uttar Pradesh, Bihar, Maharashtra, Karnataka, AP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh, juice, jam, jelly, guava paste, dried snacks</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Thin edible skin; white-pink grainy flesh with hard seeds</div>
+        </div>
+        <span class="crop-use-chip">Fruit</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Coconut_on_tree.jpg/320px-Coconut_on_tree.jpg"
+          alt="Coconut palm with green coconuts growing on tree — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#14532d)\'>🥥<span>Coconut — Cocos nucifera</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Coconut</div>
+        <div class="crop-local">Nariyal (नारियल) / Thengai · Cocos nucifera</div>
+        <div class="crop-caption">The "Tree of Life" — every part is economically useful. Green drupes at crown of 30m palms; white endosperm (copra) yields high-value cooking oil.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala, Tamil Nadu, Karnataka, Andhra Pradesh, Goa</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Oil, coconut water, milk, copra, coir fibre, toddy</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Fibrous brown husk; 3 eyes at base of inner shell</div>
+        </div>
+        <span class="crop-use-chip">Multi-Use</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Pomegranate_fruit_-_whole_and_piece_with_arils.jpg/320px-Pomegranate_fruit_-_whole_and_piece_with_arils.jpg"
+          alt="Pomegranate split open showing deep red arils — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7f1d1d,#b91c1c)\'>❤️<span>Pomegranate — Punica granatum</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Pomegranate</div>
+        <div class="crop-local">Anar (अनार) / Mathulam · Punica granatum</div>
+        <div class="crop-caption">Leathery red-hued berry containing 600+ jewel-like ruby arils. Bhagwa and Mridula varieties dominate Indian markets; Maharashtra's Solapur is the pomegranate capital.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra (Solapur), Karnataka, Gujarat, Rajasthan, AP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fresh arils, juice, anardana (dried), wine, medicine</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Crown (calyx remnant) at apex; hundreds of red arils</div>
+        </div>
+        <span class="crop-use-chip">Fruit / Health</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     💰 CASH CROPS
+══════════════════════════════════════ -->
+<section id="cash" class="category-section cat-cash">
+  <div class="cat-header">
+    <span class="cat-emoji">💰</span>
+    <h2 class="cat-title">Cash Crops</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">Industrial and plantation crops grown primarily for commercial processing and export rather than direct consumption. These crops drive rural income, manufacturing, and India's agricultural export economy.</p>
+  <div class="cat-divider"></div>
+
+  <!-- Cash Crops Hero Panel -->
+  <div class="cat-hero-img">
+    <div class="cash-hero-grid" style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);height:480px;gap:3px;border-radius:20px;overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#052e16,#166534);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1593789198777-b88c4a30f99e?w=450&h=240&fit=crop&q=85" alt="Sugarcane field" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🌿</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Sugarcane</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#1c1917,#57534e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1612198273688-b94b0d47e06f?w=450&h=240&fit=crop&q=85" alt="Cotton bolls" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">☁️</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Cotton</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#14532d,#166534);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=450&h=240&fit=crop&q=85" alt="Tea plantation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🍵</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Tea</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#292524,#44403c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=450&h=240&fit=crop&q=85" alt="Coffee cherries" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">☕</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Coffee</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#713f12,#92400e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=450&h=240&fit=crop&q=85" alt="Jute stalks" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🌾</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Jute</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#1e3a1e,#14532d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=450&h=240&fit=crop&q=85" alt="Rubber plantation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🌲</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Rubber</div></div>
+      </div>
+    </div>
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Field Stage:</strong> Sugarcane (dense green stalks), Cotton (open white bolls), Tea (hillside plantation rows), Coffee (red cherry-bearing branches), Jute (fibrous stalks), Rubber (latex collection). Verified Unsplash stock photography.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sugarcane_field.jpg/320px-Sugarcane_field.jpg"
+          alt="Dense sugarcane field with tall green-yellow stalks — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#65a30d)\'>🌿<span>Sugarcane — Saccharum officinarum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Sugarcane</div>
+        <div class="crop-local">Ganna (गन्ना) / Karumbu · Saccharum officinarum</div>
+        <div class="crop-caption">Towering 3–5m dense stalks with jointed nodes and high sucrose content. India is the world's #1 producer of sugarcane; supports 50M farmer families.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> UP, Maharashtra, Karnataka, Tamil Nadu, Gujarat</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Sugar, jaggery (gur), ethanol, molasses, bagasse (paper)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Bamboo-like jointed green-purple stalks; waxy outer coating</div>
+        </div>
+        <span class="crop-use-chip">Sugar / Fuel</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Gossypium_hirsutum_in_field.jpg/320px-Gossypium_hirsutum_in_field.jpg"
+          alt="White cotton bolls open on plant in field — field/growth stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#1c1917,#78716c)\'>☁️<span>Cotton — Gossypium hirsutum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Cotton</div>
+        <div class="crop-local">Kapas (कपास) / Parutti · Gossypium hirsutum / G. arboreum</div>
+        <div class="crop-caption">Fluffy white cotton bolls bursting open from dried seed pods. India is the world's largest cotton producer; the "white gold" of Vidarbha and Gujarat.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Gujarat, Maharashtra, Telangana, AP, MP, Punjab</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Fiber (textile), cottonseed oil, linters, animal feed</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Fluffy white 3–5 lobed boll; okra-like green capsule before opening</div>
+        </div>
+        <span class="crop-use-chip">Fiber / Oil</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Tea_Plantation_in_Munnar.jpg/320px-Tea_Plantation_in_Munnar.jpg"
+          alt="Lush green tea plantation on hillside — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#166534)\'>🍵<span>Tea — Camellia sinensis</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Tea</div>
+        <div class="crop-local">Chai (चाय) / Theyilai · Camellia sinensis</div>
+        <div class="crop-caption">Manicured rows of compact shrubs on misty hillside estates. Only the "two leaves and a bud" are plucked — entirely by hand; Assam and Darjeeling are world-famous origins.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Assam, West Bengal (Darjeeling), Tamil Nadu (Nilgiris), Kerala</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Beverage, chai, antioxidant supplements, tea extract</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Glossy elliptical leaf with serrated margins; compact mound shape</div>
+        </div>
+        <span class="crop-use-chip">Beverage / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/320px-Roasted_coffee_beans.jpg"
+          alt="Red coffee cherries on plant branch — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#292524,#57534e)\'>☕<span>Coffee — Coffea arabica/robusta</span></div>'" />
+        <span class="crop-stage-badge stage-processed">🟠 Processed</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Coffee</div>
+        <div class="crop-local">Kapi / Coffee · Coffea arabica / C. canephora</div>
+        <div class="crop-caption">Deep-red coffee cherries cluster on branches under forest canopy shade. India produces shade-grown arabica and robusta; Coorg and Chikmagalur are legendary origins.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Karnataka (Coorg), Kerala, Tamil Nadu (Nilgiris)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Beverage, espresso, filter coffee, export (green beans)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Glossy paired drupes (cherries) turning red at maturity</div>
+        </div>
+        <span class="crop-use-chip">Beverage / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Jute_field.jpg/320px-Jute_field.jpg"
+          alt="Tall jute stalks in field — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#713f12,#92400e)\'>🌿<span>Jute — Corchorus olitorius</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Jute</div>
+        <div class="crop-local">Paat (पाट) / Salpa · Corchorus capsularis / olitorius</div>
+        <div class="crop-caption">Tall (3–4m) fibrous stalks harvested by retting (water soaking) to extract strong bast fibers. The "Golden Fiber" — biodegradable packaging alternative to plastic.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> West Bengal, Bihar, Assam, Odisha (Bengal delta = ideal)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Gunny sacks, rope, carpet backing, geo-textile, handicrafts</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Tall unbranched stem; soft silky luster after retting</div>
+        </div>
+        <span class="crop-use-chip">Fiber</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Hevea_brasiliensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-071.jpg/320px-Hevea_brasiliensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-071.jpg"
+          alt="Rubber tree plantation with latex collection bowl — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#1e3a1e,#14532d)\'>🌲<span>Rubber — Hevea brasiliensis</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Rubber</div>
+        <div class="crop-local">Rezan / Rubber · Hevea brasiliensis</div>
+        <div class="crop-caption">White milky latex oozes from diagonal bark incisions into collection cups. Kerala's rubber plantations produce 90%+ of India's natural rubber for tyre manufacturing.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala (90%+), Tamil Nadu, Karnataka, Assam, Tripura</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Tyres, gloves, surgical products, elastic, industrial parts</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Trifoliate leaves; diagonal bark tapping marks; white latex</div>
+        </div>
+        <span class="crop-use-chip">Industrial</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     🌿 SPECIALTY / OTHER CROPS
+══════════════════════════════════════ -->
+<section id="other" class="category-section cat-other">
+  <div class="cat-header">
+    <span class="cat-emoji">🌿</span>
+    <h2 class="cat-title">Specialty & Other Crops</h2>
+    <span class="cat-badge">6 Crops</span>
+  </div>
+  <p class="cat-desc">High-value specialty crops occupying unique ecological niches — from the versatile cassava of tribal belts to the aromatic cardamom of misty Western Ghats and the prized arecanut of coastal plantations.</p>
+  <div class="cat-divider"></div>
+
+  <!-- Specialty Crops Hero Panel -->
+  <div class="cat-hero-img">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);height:480px;gap:3px;border-radius:20px;overflow:hidden;">
+      <div style="background:linear-gradient(135deg,#292524,#78716c);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=450&h=240&fit=crop&q=85" alt="Tapioca cassava roots" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🥔</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Tapioca</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#14532d,#166534);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=450&h=240&fit=crop&q=85" alt="Cardamom pods" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">💚</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Cardamom</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#7c2d12,#ca8a04);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=450&h=240&fit=crop&q=85" alt="Cashew nut" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🥜</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Cashew</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#365314,#f97316);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=450&h=240&fit=crop&q=85" alt="Arecanut palm" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🌴</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Arecanut</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1576578030967-b64b3f8a0ee9?w=450&h=240&fit=crop&q=85" alt="Garlic bulbs" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🧄</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Garlic</div></div>
+      </div>
+      <div style="background:linear-gradient(135deg,#4c0519,#9f1239);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?w=450&h=240&fit=crop&q=85" alt="Saffron crocus flowers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;" onerror="this.style.display='none'" loading="lazy"/>
+        <div style="position:relative;z-index:1;text-align:center;"><div style="font-size:2.5rem;">🔴</div><div style="color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.8);">Saffron</div></div>
+      </div>
+    </div>
+    <div class="cat-hero-img-caption">
+      <strong>📸 Category Overview — Harvested & Field Stage:</strong> Tapioca (root tubers), Cardamom (green pods), Cashew (apple & nut), Arecanut (palm cluster), Garlic (white bulbs), Saffron (purple crocus flowers). Verified Unsplash stock photography.
+    </div>
+  </div>
+
+  <div class="crop-grid">
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Cassava_fresh_roots.jpg/320px-Cassava_fresh_roots.jpg"
+          alt="Large white tapioca/cassava tuber roots freshly harvested — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#292524,#78716c)\'>🥔<span>Tapioca — Manihot esculenta</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Tapioca (Cassava)</div>
+        <div class="crop-local">Kappa / Maravalli · Manihot esculenta</div>
+        <div class="crop-caption">Large starchy brown-skinned tubers with white interior harvested 10–12 months after planting. Kerala's "poor man's crop" — central to tribal food security.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala, Tamil Nadu, Andhra Pradesh, Maharashtra</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Food (boiled/chips), starch, animal feed, biofuel, sabudana</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Brown scaly bark; white starchy flesh; palmate leaves</div>
+        </div>
+        <span class="crop-use-chip">Starch / Food</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Elettaria_cardamomum.jpg/320px-Elettaria_cardamomum.jpg"
+          alt="Green cardamom pods on plant in forest — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#14532d,#166534)\'>💚<span>Cardamom — Elettaria cardamomum</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Cardamom (Elaichi)</div>
+        <div class="crop-local">Elaichi (इलाइची) / Elakkai · Elettaria cardamomum</div>
+        <div class="crop-caption">Pale green tri-celled pods clustered near the base of tall ginger-family plants. The "Queen of Spices" — world's 3rd most expensive spice after saffron and vanilla.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Kerala (Idukki), Karnataka, Tamil Nadu (Cardamom Hills)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Spice, chai masala, desserts, mouth freshener, medicine</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 3-ridged pale-green pod; 3 seed columns with dark aromatic seeds</div>
+        </div>
+        <span class="crop-use-chip">Spice / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Cashew_-_Castanha_de_caju.jpg/320px-Cashew_-_Castanha_de_caju.jpg"
+          alt="Cashew apple with kidney-shaped nut — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#7c2d12,#ca8a04)\'>🥜<span>Cashew — Anacardium occidentale</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Cashew</div>
+        <div class="crop-local">Kaju (काजू) / Mundhiri · Anacardium occidentale</div>
+        <div class="crop-caption">Kidney-shaped nut hangs externally below fleshy yellow-red cashew apple. India is the world's #1 cashew processor; Goa and Kerala export premium grades.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Maharashtra (Konkan), Goa, Karnataka, Kerala, AP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Nut (snack, cooking), cashew apple juice, CNSL (industrial oil)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Gray-green kidney nut below fleshy red-yellow accessory fruit</div>
+        </div>
+        <span class="crop-use-chip">Nut / Export</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Areca_catechu_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-012.jpg/320px-Areca_catechu_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-012.jpg"
+          alt="Areca nut palm with orange-green nut cluster — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#365314,#f97316)\'>🌴<span>Arecanut — Areca catechu</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Arecanut (Betel Nut)</div>
+        <div class="crop-local">Supari (सुपारी) / Paakku · Areca catechu</div>
+        <div class="crop-caption">Oval orange-green drupes in compact clusters on slender palms. Seeds dried and sliced as "supari" for traditional pan-chewing; major income crop of coastal Karnataka.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Karnataka (Shimoga-Mangalore), Kerala, Assam, AP</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Pan/paan chewing, ceremonial use, tanning agent, dye</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Slender graceful palm; compact clusters of smooth orange nuts</div>
+        </div>
+        <span class="crop-use-chip">Commercial</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Garlic_bulbs_closeup.jpg/320px-Garlic_bulbs_closeup.jpg"
+          alt="White garlic bulbs freshly harvested — harvested form" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#ecfdf5,#d1fae5)\'>🧄<span>Garlic — Allium sativum</span></div>'" />
+        <span class="crop-stage-badge stage-harvest">🟡 Harvested</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Garlic</div>
+        <div class="crop-local">Lahsun (लहसुन) / Poondu · Allium sativum</div>
+        <div class="crop-caption">Compound bulb of 10–16 cloves encased in papery white skin. Allicin provides characteristic pungent aroma; dual-use as culinary spice and medicinal herb.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Madhya Pradesh (Mandsaur), Gujarat, Rajasthan, Maharashtra</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Cooking spice, garlic paste, dehydrated flakes, medicine</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> Compound bulb; papery white skin; flat-sided individual cloves</div>
+        </div>
+        <span class="crop-use-chip">Spice / Medicine</span>
+      </div>
+    </div>
+
+    <div class="crop-card">
+      <div class="crop-img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Saffron_Crop.JPG/320px-Saffron_Crop.JPG"
+          alt="Purple saffron flowers in field — field stage" loading="lazy"
+          onerror="this.parentNode.innerHTML='<div class=\'crop-img-fallback\' style=\'background:linear-gradient(135deg,#4c0519,#9f1239)\'>🔴<span>Saffron — Crocus sativus</span></div>'" />
+        <span class="crop-stage-badge stage-field">🟢 Field Stage</span>
+      </div>
+      <div class="crop-body">
+        <div class="crop-name">Saffron (Kesar)</div>
+        <div class="crop-local">Kesar (केसर) / Kungumapoo · Crocus sativus</div>
+        <div class="crop-caption">Each purple crocus flower yields only 3 vivid red stigma threads. World's most expensive spice by weight — hand-harvested at dawn; Kashmir's Pampore valley is the sole Indian source.</div>
+        <div class="crop-meta">
+          <div class="crop-meta-row"><span class="crop-meta-icon">📍</span><span class="crop-meta-label">Region:</span> Jammu & Kashmir (Pampore — only saffron district in India)</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">🎯</span><span class="crop-meta-label">Use:</span> Flavor/color for biryani, sweets, saffron milk, medicine, cosmetics</div>
+          <div class="crop-meta-row"><span class="crop-meta-icon">👁️</span><span class="crop-meta-label">ID Mark:</span> 3 bright crimson stigmas; purple flower; grass-like leaves</div>
+        </div>
+        <span class="crop-use-chip">Luxury Spice</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-logo">🌾 Uzhavar Mutram</div>
+  <p class="footer-sub">
+    Indian Crop Reference Guide · Photorealistic AI-generated images + verified agricultural stock photography<br/>
+    <a href="/" class="footer-link">← Back to Procurement Portal</a> &nbsp;|&nbsp;
+    <a href="/api/health" class="footer-link">API Health</a>
+  </p>
+</footer>
+
+<script>
+  // ── Unsplash verified crop image map ──
+  // Maps crop name keywords to reliable Unsplash photo URLs
+  const CROP_IMAGES = {
+    'Wheat':          'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop&q=85',
+    'Paddy':          'https://images.unsplash.com/photo-1536304993881-ff86d42818e4?w=400&h=300&fit=crop&q=85',
+    'Maize':          'https://images.unsplash.com/photo-1601472544977-aeadaa6f7f60?w=400&h=300&fit=crop&q=85',
+    'Sorghum':        'https://images.unsplash.com/photo-1597916829826-02e5bb4a54e0?w=400&h=300&fit=crop&q=85',
+    'Pearl Millet':   'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop&q=85',
+    'Finger Millet':  'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop&q=85',
+    'Chickpea':       'https://images.unsplash.com/photo-1615485020946-cbc5bed3e9a0?w=400&h=300&fit=crop&q=85',
+    'Pigeon Pea':     'https://images.unsplash.com/photo-1631209121750-a9f656d28f47?w=400&h=300&fit=crop&q=85',
+    'Green Gram':     'https://images.unsplash.com/photo-1584473457406-6240486418e9?w=400&h=300&fit=crop&q=85',
+    'Black Gram':     'https://images.unsplash.com/photo-1631209121750-a9f656d28f47?w=400&h=300&fit=crop&q=85',
+    'Red Lentil':     'https://images.unsplash.com/photo-1550259979-ed79b48d2a30?w=400&h=300&fit=crop&q=85',
+    'Kidney Bean':    'https://images.unsplash.com/photo-1567349946-a71c5b02d1d1?w=400&h=300&fit=crop&q=85',
+    'Groundnut':      'https://images.unsplash.com/photo-1564894809611-1742fc40ed80?w=400&h=300&fit=crop&q=85',
+    'Sunflower':      'https://images.unsplash.com/photo-1490750967868-88df5691cc45?w=400&h=300&fit=crop&q=85',
+    'Mustard':        'https://images.unsplash.com/photo-1600454309261-3dc35bfcc0ea?w=400&h=300&fit=crop&q=85',
+    'Soybean':        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&q=85',
+    'Sesame':         'https://images.unsplash.com/photo-1631566248869-50e9601e2234?w=400&h=300&fit=crop&q=85',
+    'Castor':         'https://images.unsplash.com/photo-1597916829826-02e5bb4a54e0?w=400&h=300&fit=crop&q=85',
+    'Turmeric':       'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=300&fit=crop&q=85',
+    'Chili':          'https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=400&h=300&fit=crop&q=85',
+    'Coriander':      'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=400&h=300&fit=crop&q=85',
+    'Cumin':          'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&q=85',
+    'Black Pepper':   'https://images.unsplash.com/photo-1600454309261-3dc35bfcc0ea?w=400&h=300&fit=crop&q=85',
+    'Ginger':         'https://images.unsplash.com/photo-1594484208280-efa00f96fc21?w=400&h=300&fit=crop&q=85',
+    'Tomato':         'https://images.unsplash.com/photo-1558818498-28c1e002b655?w=400&h=300&fit=crop&q=85',
+    'Onion':          'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=300&fit=crop&q=85',
+    'Potato':         'https://images.unsplash.com/photo-1518977676405-191e04749f81?w=400&h=300&fit=crop&q=85',
+    'Brinjal':        'https://images.unsplash.com/photo-1615485020956-07b7a5f9e437?w=400&h=300&fit=crop&q=85',
+    'Okra':           'https://images.unsplash.com/photo-1631566248869-50e9601e2234?w=400&h=300&fit=crop&q=85',
+    'Cauliflower':    'https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=400&h=300&fit=crop&q=85',
+    'Mango':          'https://images.unsplash.com/photo-1605027990121-cbae9e0642df?w=400&h=300&fit=crop&q=85',
+    'Banana':         'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=400&h=300&fit=crop&q=85',
+    'Papaya':         'https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=400&h=300&fit=crop&q=85',
+    'Guava':          'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop&q=85',
+    'Coconut':        'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop&q=85',
+    'Pomegranate':    'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&h=300&fit=crop&q=85',
+    'Sugarcane':      'https://images.unsplash.com/photo-1593789198777-b88c4a30f99e?w=400&h=300&fit=crop&q=85',
+    'Cotton':         'https://images.unsplash.com/photo-1612198273688-b94b0d47e06f?w=400&h=300&fit=crop&q=85',
+    'Tea':            'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop&q=85',
+    'Coffee':         'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop&q=85',
+    'Jute':           'https://images.unsplash.com/photo-1615485029560-539f1e3e0c50?w=400&h=300&fit=crop&q=85',
+    'Rubber':         'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop&q=85',
+    'Tapioca':        'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop&q=85',
+    'Cardamom':       'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&q=85',
+    'Cashew':         'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=300&fit=crop&q=85',
+    'Arecanut':       'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=400&h=300&fit=crop&q=85',
+    'Garlic':         'https://images.unsplash.com/photo-1576578030967-b64b3f8a0ee9?w=400&h=300&fit=crop&q=85',
+    'Saffron':        'https://images.unsplash.com/photo-1612203985729-70726954388c?w=400&h=300&fit=crop&q=85',
+  };
+
+  // Inject Unsplash images into all crop cards
+  function loadCropImages() {
+    document.querySelectorAll('.crop-card').forEach(card => {
+      const wrapper = card.querySelector('.crop-img-wrapper');
+      const nameEl = card.querySelector('.crop-name');
+      if (!wrapper || !nameEl) return;
+      const cropName = nameEl.textContent.trim();
+      // Find matching key
+      const matchKey = Object.keys(CROP_IMAGES).find(k =>
+        cropName.toLowerCase().includes(k.toLowerCase())
+      );
+      if (!matchKey) return;
+      const existingImg = wrapper.querySelector('img');
+      const badge = wrapper.querySelector('.crop-stage-badge');
+      // Build a fresh img element
+      const img = document.createElement('img');
+      img.src = CROP_IMAGES[matchKey];
+      img.alt = cropName + ' - agricultural photograph';
+      img.loading = 'lazy';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;';
+      img.onerror = function() {
+        // If Unsplash fails, keep existing src or show fallback
+        if (existingImg && existingImg.src !== this.src) {
+          this.src = existingImg.src;
+        } else {
+          const gradients = [
+            'linear-gradient(135deg,#14532d,#15803d)',
+            'linear-gradient(135deg,#713f12,#ca8a04)',
+            'linear-gradient(135deg,#7f1d1d,#b91c1c)',
+          ];
+          const grad = gradients[Math.floor(Math.random() * gradients.length)];
+          wrapper.innerHTML = `<div style="background:${grad};width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:3rem;">🌿<span style="font-size:0.8rem;color:rgba(255,255,255,0.6)">${cropName}</span></div>`;
+          if (badge) wrapper.appendChild(badge);
+        }
+      };
+      // Clear wrapper and add new image + badge
+      wrapper.innerHTML = '';
+      wrapper.appendChild(img);
+      if (badge) wrapper.appendChild(badge);
+    });
+  }
+
+  loadCropImages();
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.cat-nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Highlight active nav on scroll
+  const sections = document.querySelectorAll('.category-section');
+  const navLinks = document.querySelectorAll('.cat-nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const id = entry.target.id;
+        const activeLink = document.querySelector(`.cat-nav a[href="#${id}"]`);
+        if (activeLink) activeLink.style.color = '#22c55e';
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+
+  // Lazy image fallback enhancement
+  document.querySelectorAll('.crop-img-wrapper img').forEach(img => {
+    img.addEventListener('error', function() {
+      const wrapper = this.parentNode;
+      const cropName = wrapper.nextElementSibling?.querySelector('.crop-name')?.textContent || 'Crop';
+      const gradients = [
+        'linear-gradient(135deg,#14532d,#15803d)',
+        'linear-gradient(135deg,#713f12,#ca8a04)',
+        'linear-gradient(135deg,#7f1d1d,#b91c1c)',
+        'linear-gradient(135deg,#1e1b4b,#312e81)',
+        'linear-gradient(135deg,#292524,#57534e)',
+        'linear-gradient(135deg,#14532d,#166534)'
+      ];
+      const grad = gradients[Math.floor(Math.random() * gradients.length)];
+      wrapper.innerHTML = `<div class="crop-img-fallback" style="background:${grad};width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:3rem;">🌿<span style="font-size:0.8rem;color:rgba(255,255,255,0.6)">${cropName}</span></div>`;
+    });
+  });
+
+  // Stats counter animation
+  document.querySelectorAll('.hero-stat-num').forEach(num => {
+    const target = parseInt(num.textContent);
+    if (!isNaN(target)) {
+      let count = 0;
+      const timer = setInterval(() => {
+        count += Math.ceil(target / 20);
+        if (count >= target) { count = target; clearInterval(timer); }
+        num.textContent = count + (num.textContent.includes('+') ? '+' : '');
+      }, 50);
+    }
+  });
+</script>
+</body>
+</html>

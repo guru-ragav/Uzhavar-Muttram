@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uzhavar Mutram | Smart Agricultural Marketplace, Storage Rental & Smart Queue System</title>
+  
+  <!-- SEO & Fonts & PWA -->
+  <meta name="description" content="Uzhavar Mutram - Direct Market Crop Selling, Stockyard Storage Rental, Real-Time Market Prices, Aadhaar eKYC Verification & Smart Queue System.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#68786E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Network Offline Status Banner -->
+  <div id="offlineBanner" class="offline-banner hidden" data-i18n="offlineMode">
+    ⚡ <strong>Offline Mode:</strong> Accessing Cached Uzhavar Mutram Data & Booked Passes
+  </div>
+
+  <!-- Header Bar : Agricultural hero -->
+  <header class="header-bar">
+    <div class="header-container">
+      <div class="brand-section">
+        <div class="brand-icon"><i class="fas fa-seedling"></i></div>
+        <div>
+          <h1 class="brand-title" data-i18n="appTitle">Uzhavar Mutram</h1>
+          <div class="brand-subtitle" data-i18n="tagline">Direct Crop Selling, Storage Rental & Market Price System</div>
+        </div>
+      </div>
+
+      <!-- Multi-Role Switcher -->
+      <div class="role-switcher">
+        <button class="role-btn active" data-role="farmer" data-tab="farmerView"><i class="fas fa-tractor"></i> <span data-i18n="farmerPortal">Farmer Portal</span>
+        </button>
+        <button class="role-btn" data-role="officer" data-tab="officerView"><i class="fas fa-user-shield"></i> <span data-i18n="officerPortal">Market Officer Admin</span>
+        </button>
+        <button class="role-btn" data-role="buyer" data-tab="buyerView"><i class="fas fa-shopping-cart"></i> <span data-i18n="buyerPortal">Wholesale Buyer</span>
+        </button>
+        <button class="role-btn" data-role="kiosk" data-tab="kioskView"><i class="fas fa-desktop"></i> <span data-i18n="kioskPortal">Display Board</span>
+        </button>
+      </div>
+
+      <!-- Secondary utility row -->
+      <div class="header-actions">
+        <select id="langSelect" class="lang-select">
+          <option value="en">🌐 English</option>
+          <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+          <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
+          <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+          <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
+          <option value="kn">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+        </select>
+        <div id="userProfileHeaderBadge" class="user-profile-pill">
+          <i class="fas fa-user-circle"></i> <strong id="headerUserName">Ramesh Singh</strong>
+          <span class="badge badge-success" id="headerRoleBadge">FARMER</span>
+          <button id="headerAuthBtn" class="btn header-ghost-btn" onclick="openLoginModal()" data-i18n="switchAccount">Switch Account</button>
+          <button id="headerRegisterBtn" class="btn header-register-btn" onclick="openRegisterModal()" title="Create New Account"><i class="fas fa-user-plus"></i> <span data-i18n="registerAction">Register</span></button>
+        </div>
+        <button id="voiceBtn" class="voice-btn" onclick="triggerAudioHelper()">
+          <span><i class="fas fa-volume-high"></i> <span data-i18n="audioHelper">Audio Voice Helper</span></span>
+        </button>
+        <button id="voiceCommandBtn" class="voice-btn" onclick="openVoiceCommandModal()">
+          <span data-i18n="voiceCommandEngine"><i class="fas fa-microphone"></i> Voice Command Engine</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- ================= FARMER PORTAL VIEW ================= -->
+    <section id="farmerView" class="view-panel active">
+      <!-- Sub Navigation -->
+      <nav class="sub-nav">
+        <button class="sub-tab active" data-subtab="book-slot" data-tab="book-slot"><i class="fas fa-calendar-check"></i> <span data-i18n="bookSlot">Book Selling Slot</span></button>
+        <button class="sub-tab" data-subtab="queue-tracker" data-tab="queue-tracker"><i class="fas fa-list-ol"></i> <span data-i18n="queueTracker">Live Line Tracker</span></button>
+        <button class="sub-tab" data-subtab="logistics" data-tab="logistics"><i class="fas fa-truck-ramp-box"></i> Logistics & Transport</button>
+        <button class="sub-tab" data-subtab="govt-schemes" data-tab="govt-schemes"><i class="fas fa-landmark"></i> Govt. Schemes</button>
+        <button class="sub-tab" data-subtab="market-prices" data-tab="market-prices"><i class="fas fa-chart-line"></i> <span data-i18n="marketPrices">Live Prices & Trends</span></button>
+        <button class="sub-tab" data-subtab="stockyard" data-tab="stockyard" data-i18n="stockyard"><i class="fas fa-warehouse"></i> Stockyard Storage Rental</button>
+        <button class="sub-tab" data-subtab="my-passes" data-tab="my-passes"><i class="fas fa-receipt"></i> <span data-i18n="myPasses">My Passes & Receipts</span></button>
+        <button class="sub-tab" data-subtab="msp-board" data-tab="msp-board"><i class="fas fa-tags"></i> <span data-i18n="mspRates">Govt Crop Prices (MSP)</span></button>
+        <button class="sub-tab" data-subtab="agristack" data-tab="agristack"><i class="fas fa-id-card"></i> Digital Farmer ID</button>
+        <button class="sub-tab" data-subtab="profile" data-tab="profile"><i class="fas fa-user-check"></i> <span data-i18n="profile">My Bank & Aadhaar eKYC</span></button>
+        <button class="sub-tab" data-subtab="customer-care" data-tab="customer-care" data-i18n="customerCare"><i class="fas fa-headset"></i> <span>Customer Support & Helpline</span></button>
+      </nav>
+
+      <!-- Panel 1: Book Slot Form -->
+      <div id="farmerSub-book-slot" class="farmer-panel">
+        <div class="grid-2">
+
+          <!-- Booking Form Card -->
+          <div class="card booking-card">
+
+            <!-- Decorative: rice stalks & botanical leaves (right side, behind form) -->
+            <svg class="booking-scene-stalks" viewBox="0 0 300 560" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+              <g stroke="#C1BFA8" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.75">
+                <path d="M255 560 C 250 460 258 380 246 290"/>
+                <path d="M246 290 l-26 20 M246 290 l24 18 M248 340 l-25 19 M248 340 l23 17 M251 396 l-24 18 M251 396 l22 16 M253 448 l-22 17 M253 448 l21 15"/>
+                <path d="M195 560 C 198 480 190 420 198 348"/>
+                <path d="M198 348 l-22 16 M198 348 l21 15 M197 390 l-21 15 M197 390 l20 14 M199 434 l-20 15 M199 434 l19 13"/>
+                <path d="M285 560 C 288 500 282 448 288 396"/>
+                <path d="M288 396 l-18 13 M288 396 l17 12 M287 430 l-17 12 M287 430 l16 11"/>
+              </g>
+              <g fill="#F6D19A" opacity="0.8">
+                <ellipse cx="220" cy="282" rx="9" ry="19" transform="rotate(-26 220 282)"/>
+                <ellipse cx="270" cy="279" rx="9" ry="19" transform="rotate(24 270 279)"/>
+                <ellipse cx="245" cy="262" rx="8" ry="17" transform="rotate(-4 245 262)"/>
+                <ellipse cx="176" cy="340" rx="8" ry="17" transform="rotate(-26 176 340)"/>
+                <ellipse cx="219" cy="337" rx="8" ry="17" transform="rotate(24 219 337)"/>
+                <ellipse cx="198" cy="320" rx="7" ry="15" transform="rotate(-4 198 320)"/>
+                <ellipse cx="270" cy="388" rx="7" ry="15" transform="rotate(-24 270 388)"/>
+                <ellipse cx="305" cy="385" rx="7" ry="15" transform="rotate(22 305 385)"/>
+              </g>
+              <g fill="#A49D71" opacity="0.55">
+                <ellipse cx="272" cy="536" rx="16" ry="9" transform="rotate(-28 272 536)"/>
+                <ellipse cx="292" cy="516" rx="15" ry="8" transform="rotate(24 292 516)"/>
+                <ellipse cx="252" cy="552" rx="14" ry="8" transform="rotate(-8 252 552)"/>
+              </g>
+            </svg>
+
+            <!-- Decorative: soft sage hill curves at bottom -->
+            <svg class="booking-scene-hills" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 150 Q 200 92 430 128 T 860 118 T 1200 108 L1200 220 L0 220 Z" fill="#C1BFA8" opacity="0.4"/>
+              <path d="M0 178 Q 260 128 520 158 T 980 150 T 1200 146 L1200 220 L0 220 Z" fill="#A49D71" opacity="0.3"/>
+              <path d="M0 200 Q 300 168 620 190 T 1200 184 L1200 220 L0 220 Z" fill="#F6D19A" opacity="0.35"/>
+            </svg>
+
+            <div class="form-area">
+              <div class="card-header">
+                <div class="card-title"><i class="fas fa-calendar-check"></i> <span data-i18n="bookSlotTitle">Book Crop Selling Slot</span></div>
+                <span class="badge badge-success"><i class="fas fa-shield-halved"></i> <span data-i18n="govtVerifiedPortal">Govt Verified Portal</span></span>
+              </div>
+
+              <form id="slotBookingForm">
+                <div class="form-group">
+                  <label class="form-label" data-i18n="sellerNameLabel"><i class="fas fa-user"></i> Farmer / Seller Full Name</label>
+                  <input type="text" id="bookingFarmerName" class="form-control" value="Ramesh Singh Kumar" placeholder="Enter your full name (e.g. Ramesh Kumar)" data-i18n-placeholder="sellerNamePlaceholder" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" data-i18n="selectMandi"><i class="fas fa-location-dot"></i> Select Market / Collection Centre</label>
+                  <select id="bookingMandi" class="form-control" required></select>
+                </div>
+
+                <div class="grid-2 grid-equal">
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="selectCrop"><i class="fas fa-wheat-awn"></i> Select Crop Type</label>
+                    <select id="bookingCrop" class="form-control" required></select>
+                    <div id="cropPricePreviewBadge" class="crop-price-badge"></div>
+                  </div>
+
+                  <!-- Weight Unit Converter Input -->
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="quantityUnit"><i class="fas fa-scale-balanced"></i> Quantity & Unit Input</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <input type="number" id="bookingQty" class="form-control" min="1" max="10000" value="65" required style="flex: 2;">
+                      <select id="bookingUnit" class="form-control" style="flex: 1.5;">
+                        <option value="QUINTAL" selected data-i18n="unitQuintals">Quintals (100kg)</option>
+                        <option value="METRIC_TON" data-i18n="unitMT">Metric Tons (MT)</option>
+                        <option value="BAG_50KG" data-i18n="unitBags">Bags (50kg)</option>
+                        <option value="KG" data-i18n="unitKg">Kilograms (Kg)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Standardized Weight Conversion Display -->
+                <div class="weight-converter-badge" id="weightConversionDisplay"><i class="fas fa-balance-scale"></i> <strong>Standardized Weight:</strong> 6,500 Kg &nbsp;|&nbsp; <strong>6.50 Metric Tons (MT)</strong>
+                </div>
+
+                <div class="grid-2 grid-equal" style="margin-top: 1rem;">
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="vehicleType"><i class="fas fa-tractor"></i> Transport Vehicle</label>
+                    <select id="bookingVehicle" class="form-control" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="vehicleNo"><i class="fas fa-id-card"></i> Vehicle Reg. Number</label>
+                    <input type="text" id="bookingVehicleNo" class="form-control" placeholder="e.g. HR-05-AB-4921" value="HR-05-AB-4921" required>
+                  </div>
+                </div>
+
+                <div class="grid-2 grid-equal">
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="selectDate"><i class="fas fa-calendar-day"></i> Crop Delivery Date</label>
+                    <input type="date" id="bookingDate" class="form-control" value="2026-08-28" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" data-i18n="selectTimeSlot"><i class="fas fa-clock"></i> Select Time Slot</label>
+                    <select id="bookingTimeSlot" class="form-control" required>
+                      <option value="08:00 AM - 09:00 AM">08:00 AM - 09:00 AM</option>
+                      <option value="09:00 AM - 10:00 AM" selected>09:00 AM - 10:00 AM</option>
+                      <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                      <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                      <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
+                      <option value="03:00 PM - 04:00 PM">03:00 PM - 04:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Congestion Bar -->
+                <div class="congestion-bar-wrapper">
+                  <div class="congestion-meta">
+                    <span data-i18n="slotCapacity">Market Line & Wait Level</span>
+                    <span id="congestionPercent">15% Capacity Filled</span>
+                  </div>
+                  <div class="congestion-progress">
+                    <div id="congestionFill" class="congestion-fill low" style="width: 15%;"></div>
+                  </div>
+                  <div id="congestionStatus" style="font-size: 0.8rem; margin-top: 0.4rem; font-weight: 600;">
+                    <i class="fas fa-circle-check"></i> LOW TRAFFIC: Quick entry expected (&lt; 15 mins wait)
+                  </div>
+                </div>
+
+                <!-- Book Slot action row -->
+                <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end; position: relative; z-index: 1;">
+                  <button type="submit" class="book-slot-btn">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span data-i18n="bookSlotAction">Book Slot</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right column: Benefits + SMS -->
+          <div>
+            <!-- Benefits of Direct Online Booking (deep sage with agricultural scene) -->
+            <div class="card benefits-card">
+              <!-- Agricultural landscape scene: sun, palms, tractor, rice field -->
+              <svg class="benefits-scene" viewBox="0 0 460 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="460" height="620" fill="transparent"/>
+                <circle cx="380" cy="86" r="46" fill="#F6D19A" opacity="0.85"/>
+                <circle cx="380" cy="86" r="72" fill="#F6D19A" opacity="0.18"/>
+                <circle cx="380" cy="86" r="100" fill="#F6D19A" opacity="0.08"/>
+                <g fill="#4E5D50">
+                  <path d="M60 178 q14 -56 8 -84" stroke="#4E5D50" stroke-width="6" fill="none"/>
+                  <ellipse cx="52" cy="92" rx="10" ry="30" transform="rotate(-28 52 92)"/>
+                  <ellipse cx="78" cy="92" rx="10" ry="30" transform="rotate(24 78 92)"/>
+                  <ellipse cx="65" cy="74" rx="9" ry="26" transform="rotate(-6 65 74)"/>
+                  <path d="M108 182 q10 -44 5 -66" stroke="#4E5D50" stroke-width="5" fill="none"/>
+                  <ellipse cx="101" cy="116" rx="8" ry="24" transform="rotate(-26 101 116)"/>
+                  <ellipse cx="121" cy="116" rx="8" ry="24" transform="rotate(22 121 116)"/>
+                </g>
+                <path d="M0 196 Q 120 172 240 188 T 460 182 L460 240 L0 240 Z" fill="#5F7263" opacity="0.8"/>
+                <path d="M0 216 Q 140 196 280 208 T 460 204 L460 250 L0 250 Z" fill="#55645B"/>
+                <g transform="translate(330 190)">
+                  <rect x="-26" y="-10" width="52" height="22" rx="6" fill="#3E4A42"/>
+                  <rect x="-56" y="-4" width="34" height="16" rx="5" fill="#3E4A42"/>
+                  <rect x="-46" y="-26" width="6" height="24" fill="#3E4A42"/>
+                  <rect x="-46" y="-26" width="20" height="6" rx="3" fill="#3E4A42"/>
+                  <rect x="-21" y="-6" width="34" height="6" rx="3" fill="#C1BFA8" opacity="0.85"/>
+                  <circle cx="-16" cy="14" r="10" fill="#2F3834"/>
+                  <circle cx="12" cy="14" r="7" fill="#2F3834"/>
+                  <circle cx="-16" cy="14" r="4" fill="#F6D19A" opacity="0.8"/>
+                  <circle cx="12" cy="14" r="3" fill="#F6D19A" opacity="0.8"/>
+                </g>
+                <g stroke="#6E8270" stroke-width="2.2" opacity="0.9">
+                  <path d="M20 320 v-22 m0 0 l-9 8 m9 -8 l9 7 m-9 -1 l-8 7 m8 -1 l8 6"/>
+                  <path d="M50 316 v-20 m0 0 l-8 7 m8 -7 l8 6 m-8 -1 l-7 6 m7 -1 l7 5"/>
+                  <path d="M80 320 v-22 m0 0 l-9 8 m9 -8 l9 7 m-9 -1 l-8 7 m8 -1 l8 6"/>
+                  <path d="M110 316 v-20 m0 0 l-8 7 m8 -7 l8 6 m-8 -1 l-7 6 m7 -1 l7 5"/>
+                  <path d="M140 320 v-22 m0 0 l-9 8 m9 -8 l9 7 m-9 -1 l-8 7 m8 -1 l8 6"/>
+                  <path d="M170 316 v-20 m0 0 l-8 7 m8 -7 l8 6 m-8 -1 l-7 6 m7 -1 l7 5"/>
+                </g>
+                <path d="M0 300 Q 120 280 240 292 T 460 288 L460 360 L0 360 Z" fill="#6E8270" opacity="0.55"/>
+                <path d="M0 340 Q 140 318 280 332 T 460 326 L460 620 L0 620 Z" fill="#5D6F63" opacity="0.5"/>
+                <path d="M0 400 Q 160 376 320 392 T 460 388 L460 620 L0 620 Z" fill="#55645B" opacity="0.45"/>
+              </svg>
+              <div class="benefits-overlay"></div>
+
+              <div class="benefits-content">
+                <h3 class="benefits-title"><i class="fas fa-star"></i> <span data-i18n="benefitsTitle">Benefits of Direct Online Booking</span></h3>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="fas fa-people-group"></i></div>
+                  <div>
+                    <h4 data-i18n="noLongLinesTitle">No Long Lines</h4>
+                    <p data-i18n="noLongLinesText">Arrive at your booked hour; skip 8+ hours waiting in tractor queues.</p>
+                  </div>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+                  <div>
+                    <h4 data-i18n="guaranteedGovtRateTitle">Guaranteed Govt Rate</h4>
+                    <p data-i18n="guaranteedGovtRateText">Sell directly at full Minimum Support Price (MSP) with no middleman commission.</p>
+                  </div>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="fas fa-scale-balanced"></i></div>
+                  <div>
+                    <h4 data-i18n="standardizedWeightingTitle">Standardized Weighing</h4>
+                    <p data-i18n="standardizedWeightingText">All crop weights converted & verified in Kilograms (Kg) and Metric Tons (MT).</p>
+                  </div>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon"><i class="fas fa-building-columns"></i></div>
+                  <div>
+                    <h4 data-i18n="directBankTransferTitle">Direct Bank Transfer</h4>
+                    <p data-i18n="directBankTransferText">Money sent directly into your registered bank account within 24 to 48 hours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile SMS Alerts -->
+            <div class="card sms-alerts-card">
+              <!-- Organic leaf/hill decoration -->
+              <svg class="sms-alerts-scene" viewBox="0 0 1200 190" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 120 Q 200 62 420 96 T 840 84 T 1200 74 L1200 190 L0 190 Z" fill="#C1BFA8" opacity="0.45"/>
+                <path d="M0 148 Q 240 100 480 126 T 900 116 T 1200 112 L1200 190 L0 190 Z" fill="#A49D71" opacity="0.35"/>
+                <path d="M0 170 Q 300 138 620 156 T 1200 150 L1200 190 L0 190 Z" fill="#F6D19A" opacity="0.4"/>
+                <g fill="#A49D71" opacity="0.5">
+                  <ellipse cx="1120" cy="52" rx="20" ry="9" transform="rotate(-30 1120 52)"/>
+                  <ellipse cx="1150" cy="38" rx="18" ry="8" transform="rotate(24 1150 38)"/>
+                  <ellipse cx="1140" cy="66" rx="17" ry="7" transform="rotate(-6 1140 66)"/>
+                </g>
+              </svg>
+
+              <div class="sms-card-body">
+                <div class="card-header">
+                  <div class="card-title"><i class="fas fa-bell"></i> <span data-i18n="mobileSmsAlertsTitle">Mobile SMS Alerts</span></div>
+                  <span class="badge badge-warning"><i class="fas fa-mobile-screen"></i> Instant</span>
+                </div>
+                <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.6;" data-i18n="mobileSmsDesc">
+                  Get instant updates on your booking, queue status, weighing and payment.
+                </p>
+                <div class="sms-preview-box" id="smsPreviewBox">
+                  SMS Preview: "Dear Ramesh Singh, Token #101 confirmed for 2026-08-28 (09:00 AM) at Koyambedu Wholesale Market Complex."
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Live Queue Tracker -->
+      <div id="farmerSub-queue-tracker" class="farmer-panel" style="display: none;">
+        <div id="farmerActiveTokenContainer">
+          <!-- Dynamically Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- Panel 3: Real-Time Crop Market Price & Trend Dashboard -->
+      <div id="farmerSub-market-prices" class="farmer-panel" style="display: none;">
+        <div class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.6rem; font-weight: 900; color: #F6D19A; margin-bottom: 0.3rem; font-family: 'Playfair Display', Georgia, serif;" data-i18n="marketPricesDashboardTitle">📈 Real-Time Agricultural Market Price Dashboard</h2>
+              <p style="font-size: 0.9rem; color: #D9CDB2;" data-i18n="marketPricesDashboardDesc">Live daily market rates, price fluctuation trends, and standardized pricing per Kg & Metric Ton.</p>
+            </div>
+            <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center;">
+              <input type="text" id="priceSearchInput" class="form-control" placeholder="🔍 Search crop or market..." data-i18n-placeholder="searchCropMarketPlaceholder" style="width: 260px;">
+              <button id="cropGuideToggleBtn" onclick="toggleCropGuide()" style="background: #BE6638; color: white; border: none; padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(190,102,56,0.35); transition: all 0.3s ease; white-space: nowrap; font-family: inherit;" onmouseenter="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(190,102,56,0.5)'" onmouseleave="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(190,102,56,0.35)'">
+                📖 Visual Crop Guide
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="category-pills-wrapper" id="marketCategoryPills">
+            <button class="pill-btn active" data-cat="ALL" data-i18n="catAll">All Crops</button>
+            <button class="pill-btn" data-cat="Cereals" data-i18n="catCereals">🌾 Cereals</button>
+            <button class="pill-btn" data-cat="Pulses" data-i18n="catPulses">🫘 Pulses</button>
+            <button class="pill-btn" data-cat="Oilseeds" data-i18n="catOilseeds">🌻 Oilseeds</button>
+            <button class="pill-btn" data-cat="Spices" data-i18n="catSpices">🌶️ Spices</button>
+            <button class="pill-btn" data-cat="Fruits & Vegetables" data-i18n="catVegetables">🍎 Vegetables & Fruits</button>
+            <button class="pill-btn" data-cat="Cash Crops" data-i18n="catCashCrops">🌾 Cash Crops</button>
+          </div>
+        </div>
+
+        <!-- Embedded Crop Guide Panel (hidden by default) -->
+        <div id="cropGuideEmbed" style="display:none; margin-bottom: 1.5rem;">
+          <div class="card" style="padding:0; overflow:hidden; border-radius:18px; border: 2px solid rgba(190,102,56,0.35); box-shadow: 0 8px 30px rgba(47,56,52,0.25);">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding: 14px 20px; background: linear-gradient(135deg, #55645B, #3E4A42); color:#FBF6EA;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:1.6rem;">📖</span>
+                <div>
+                  <h3 style="font-size:1.1rem; font-weight:800; margin:0;">Visual Crop Reference Guide</h3>
+                  <p style="font-size:0.78rem; color:rgba(255,255,255,0.7); margin:0;">45+ crops with photos, growing regions, and identification tips</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px; align-items:center;">
+                <a href="/crop-guide.html" target="_blank" style="background:rgba(255,255,255,0.15); color:white; text-decoration:none; padding:6px 14px; border-radius:8px; font-size:0.8rem; font-weight:600; border:1px solid rgba(255,255,255,0.25); cursor:pointer; transition:all 0.2s;" onmouseenter="this.style.background='rgba(255,255,255,0.25)'" onmouseleave="this.style.background='rgba(255,255,255,0.15)'">↗ Open Full Page</a>
+                <button onclick="toggleCropGuide()" style="background:rgba(255,255,255,0.15); color:white; border:1px solid rgba(255,255,255,0.25); padding:6px 14px; border-radius:8px; font-size:0.8rem; font-weight:600; cursor:pointer;" onmouseenter="this.style.background='rgba(255,255,255,0.25)'" onmouseleave="this.style.background='rgba(255,255,255,0.15)'">✕ Close</button>
+              </div>
+            </div>
+            <iframe id="cropGuideIframe" src="" style="width:100%; height:80vh; border:none; background:#FAF4E4;" loading="lazy"></iframe></iframe>
+          </div>
+        </div>
+
+        <!-- Prices Grid -->
+        <div class="grid-3" id="marketPricesGrid">
+          <!-- Dynamically Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- Panel 4: Stockyard Goods Storage & Rental System -->
+      <div id="farmerSub-stockyard" class="farmer-panel" style="display: none;">
+        <div class="grid-2">
+          <!-- Booking Storage Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title" data-i18n="rentStockyardTitle">🏭 Rent Grain Stockyard & Warehouse Storage</div>
+              <span class="badge badge-success" data-i18n="climateControlledBadge">Climate Controlled</span>
+            </div>
+
+            <form id="stockyardBookingForm">
+              <div class="form-group">
+                <label class="form-label" data-i18n="selectStorageFacility">Select Storage Facility & Stockyard</label>
+                <select id="stkFacility" class="form-control" required></select>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" data-i18n="selectCropToStore">Select Crop to Store</label>
+                  <select id="stkCrop" class="form-control" required></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" data-i18n="quantityToStoreMT">Quantity to Store (Metric Tons - MT)</label>
+                  <input type="number" id="stkQtyMT" class="form-control" min="0.5" max="500" value="10" step="0.5" required>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label" data-i18n="storageDurationDays">Storage Duration (Days)</label>
+                  <input type="number" id="stkDurationDays" class="form-control" min="1" max="365" value="30" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" data-i18n="storageStartDate">Storage Start Date</label>
+                  <input type="date" id="stkStartDate" class="form-control" value="2026-08-28" required>
+                </div>
+              </div>
+
+              <!-- Rental Fee Calculator Output Box -->
+              <div style="background: linear-gradient(135deg, #3E4A42 0%, #2F3834 100%); color: #FBF6EA; padding: 1rem; border-radius: 12px; margin-top: 1rem; margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 0.8rem; color: #D9CDB2;" data-i18n="estimatedRentalFee">Estimated Storage Rental Fee</div>
+                    <div style="font-size: 1.6rem; font-weight: 900; color: #F6D19A;" id="stkFeeDisplay">₹7,500</div>
+                  </div>
+                  <div style="text-align: right; font-size: 0.8rem; color: #D9CDB2;">
+                    <span>Rate: <strong id="stkRateDisplay" style="color:#F6D19A;">₹25</strong> / MT / Day</span><br>
+                    <span data-i18n="includesInsurance">Includes Full Insurance Cover</span>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="bookStorageBtn">
+                📦 Book Storage Space & Get Warehouse Receipt
+              </button>
+            </form>
+          </div>
+
+          <!-- Active Storage Inventory & Condition Monitoring -->
+          <div>
+            <div class="card" style="background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: #F6D19A;" data-i18n="liveStorageMonitoringTitle">🌡️ Live Storage Environmental Monitoring</h3>
+              <p style="font-size: 0.85rem; color: #E4DAC2; line-height: 1.6;" data-i18n="liveStorageMonitoringDesc">
+                All rented stockyard bays are equipped with temperature and moisture sensors. Real-time condition logs ensure zero pest contamination or moisture damage.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title" data-i18n="myActiveStockyardDeposits">📜 My Active Stockyard Deposits</div>
+              </div>
+              <div id="stockyardPassesList">
+                <!-- Dynamically Rendered by app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Digital Passes & Receipts -->
+      <div id="farmerSub-my-passes" class="farmer-panel" style="display: none;">
+        <div class="card">
+          <div class="card-header">                <div class="card-title" data-i18n="myGatePassesTitle">📜 My Gate Passes & Payment Receipts</div>
+            <button class="btn btn-outline" onclick="window.print()" data-i18n="printReceiptsBtn">🖨️ Print Receipts</button>
+          </div>
+          <div id="farmerPassesList">
+            <!-- Dynamically Rendered by app.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 6: MSP Board -->
+      <div id="farmerSub-msp-board" class="farmer-panel" style="display: none;">
+        <div id="mspBoardContainer">
+          <!-- Dynamically Rendered by app.js -->
+        </div>
+      </div>
+
+      <!-- Panel 7: Farmer Profile & eKYC -->
+      <div id="farmerSub-profile" class="farmer-panel" style="display: none;">
+        <div class="card">
+          <div class="card-header">                <div class="card-title" data-i18n="registeredFarmerAccountTitle">👤 Registered Farmer Account & Aadhaar eKYC</div>
+            <span class="badge badge-success" id="profileBadgeText" data-i18n="verifiedFarmerAccount">✓ Verified Farmer Account</span>
+          </div>
+
+          <div class="grid-2" style="font-size: 0.95rem; line-height: 2;">
+            <div><strong>Farmer ID:</strong> <span id="profFarmerId">FAR-2026-8812</span></div>
+            <div><strong>Full Name:</strong> <span id="profFarmerName">Ramesh Singh Kumar</span></div>
+            <div><strong>Aadhaar Number:</strong> <span style="font-family: monospace; font-weight: 700; color: #6E6042;" id="profAadhaar">XXXX-XXXX-4921</span></div>
+            <div><strong>Mobile Number:</strong> <span id="profMobile">+91 98765 43210</span></div>
+            <div><strong>Village / District:</strong> <span id="profLocation">Koyambedu, Madurai, Tamil Nadu</span></div>
+            <div><strong>Land Area:</strong> 8.5 Acres</div>
+            <div><strong>Bank Name:</strong> State Bank of India</div>
+            <div><strong>Account No.:</strong> ••••••••6719</div>
+            <div><strong>IFSC Code:</strong> SBIN0001234</div>
+            <div><strong>eKYC Verification:</strong> <span class="badge badge-success">✓ Aadhaar Verified</span></div>
+            <div><strong>Photo Liveness Check:</strong> <span class="badge badge-success">✓ Liveness Approved</span></div>
+            <div><strong>Direct Bank Payment Status:</strong> <span class="badge badge-success">Active & Verified</span></div>
+          </div>
+
+          <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem; display: flex; gap: 1rem;">
+            <button class="btn btn-primary" onclick="openEkycModal()" data-i18n="reverifyAadhaarBtn">🆔 Re-Verify Aadhaar & Photo eKYC</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 8: Customer Care & Support Portal -->
+      <div id="farmerSub-customer-care" class="farmer-panel" style="display: none;">
+        <!-- Emergency Helpline Banner -->
+        <div class="card" style="background: linear-gradient(135deg, #A9552B 0%, #3E4A42 100%); color: white; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div style="font-size: 0.85rem; color: #F3D9A8; font-weight: 700; text-transform: uppercase;" data-i18n="farmerHelplineTitle">24x7 Farmer Helpline & Support</div>
+              <div style="font-size: 2.2rem; font-weight: 900; color: #ffffff; letter-spacing: 0.5px;">📞 1800-180-1551 <span style="font-size: 1rem; font-weight: 600; color: #F6D19A;">(Toll-Free)</span></div>
+              <p style="font-size: 0.9rem; color: #EFDCC3; margin-top: 0.3rem;" data-i18n="farmerHelplineDesc">Free phone assistance available in English and regional languages</p>
+            </div>
+            <div>
+              <button class="btn btn-accent" style="font-size: 1rem; padding: 0.8rem 1.6rem;" onclick="speakAnnouncement('Calling Farmer Support Helpline 1 8 0 0 1 8 0 1 5 5 1')" data-i18n="callSupportBtn">📱 Call Support Desk</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Support Request Form -->
+          <div class="card">
+            <div class="card-header">                <div class="card-title" data-i18n="submitSupportRequestTitle">💬 Submit Support Request</div>
+              <span class="badge badge-info" data-i18n="fastAssistanceBadge">Fast Assistance</span>
+            </div>
+
+            <form id="customerCareForm">
+              <div class="form-group">
+                <label class="form-label" data-i18n="mobileOrFarmerId">Your Mobile Number / Farmer ID</label>
+                <input type="text" id="helpMobile" class="form-control" value="+91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="selectIssueCategory">Select Issue Category</label>
+                <select id="helpCategory" class="form-control" required>
+                  <option value="SLOT_RESCHEDULE">1. Slot Rescheduling / Date Change</option>
+                  <option value="PAYMENT_ENQUIRY">2. Bank Payment Delay Query</option>
+                  <option value="GATE_SCAN_ISSUE">3. Gate QR Code Scan Issue</option>
+                  <option value="QUALITY_DISPUTE">4. Grain Quality & Moisture Check Dispute</option>
+                  <option value="STOCKYARD">5. Stockyard Storage Inquiry</option>
+                  <option value="OTHER">6. General Market Assistance</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="describeQuestionLabel">Describe Your Question or Problem</label>
+                <textarea id="helpMessage" class="form-control" rows="4" placeholder="Explain your issue in simple words..." data-i18n-placeholder="describeQuestionPlaceholder" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" data-i18n="sendSupportRequestBtn">
+                📨 Send Support Request
+              </button>
+            </form>
+          </div>
+
+          <!-- Frequently Asked Questions (FAQ) -->
+          <div>
+            <div class="card">
+              <div class="card-header">                  <div class="card-title" data-i18n="faqTitle">❓ Frequently Asked Questions (FAQ)</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <details style="background: #FBF5E8; border: 1px solid rgba(164,157,113,0.4); padding: 0.8rem; border-radius: 10px; cursor: pointer;">
+                  <summary style="font-weight: 700; color: var(--text-main); font-size: 0.95rem;">How do I rent stockyard storage for my harvested crops?</summary>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.6;">
+                    Go to the 'Stockyard Storage Rental' tab, select your nearest climate-controlled warehouse, enter quantity in Metric Tons and duration in days. You receive an instant digital storage receipt with live temperature monitoring.
+                  </p>
+                </details>
+
+                <details style="background: #FBF5E8; border: 1px solid rgba(164,157,113,0.4); padding: 0.8rem; border-radius: 10px; cursor: pointer;">
+                  <summary style="font-weight: 700; color: var(--text-main); font-size: 0.95rem;">How are crop weights standardized?</summary>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.6;">
+                    All weights are standardized in **Kilograms (Kg)** and **Metric Tons (MT)** (1 Metric Ton = 1,000 Kg). You can enter inputs in Bags, Quintals, or Metric Tons and the system calculates exact standardized equivalents automatically.
+                  </p>
+                </details>
+
+                <details style="background: #FBF5E8; border: 1px solid rgba(164,157,113,0.4); padding: 0.8rem; border-radius: 10px; cursor: pointer;">
+                  <summary style="font-weight: 700; color: var(--text-main); font-size: 0.95rem;">When will money reach my bank account?</summary>
+                  <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.6;">
+                    Money is transferred directly into your bank account within 24 to 48 hours after crop unloading. You receive an SMS notification with the bank payment reference number.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title" data-i18n="marketOfficerDirectoryTitle">🏢 Market Officer Contact Directory</div>
+              </div>
+              <div style="font-size: 0.85rem; line-height: 1.8;">
+                <div>• <strong>Madurai Agricultural Market Hub:</strong> Shri M. Perumal (+91 452 253 1120)</div>
+                <div>• <strong>Koyambedu Wholesale Market Complex:</strong> Shri V. Muthukumar (+91 44 2479 1000)</div>
+                <div>• <strong>Oddanchatram Market Yard:</strong> Shri S. Subramanian (+91 4553 241 005)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 9: Digital Farmer ID (AgriStack) -->
+      <div id="farmerSub-agristack" class="farmer-panel" style="display: none;">
+        <div class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.5rem; font-weight: 900; color: #F6D19A; margin-bottom: 0.3rem; font-family: 'Playfair Display', Georgia, serif;"><i class="fas fa-id-card"></i> Digital Farmer ID Verification (AgriStack)</h2>
+              <p style="font-size: 0.9rem; color: #D9CDB2;">Government-linked digital identity required to sell crops and access procurement facilities.</p>
+            </div>
+            <div id="agristackHeaderBadge">
+              <span class="badge badge-success" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">✓ VERIFIED FARMER</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- Verification Form Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title"><i class="fas fa-user-check"></i> Verify / Update Digital Farmer ID</div>
+              <span class="badge badge-info">Government API Stub</span>
+            </div>
+
+            <form id="agristackVerifyForm">
+              <div class="form-group">
+                <label class="form-label">Digital Farmer ID (AgriStack)</label>
+                <input type="text" id="inputAgristackId" class="form-control" placeholder="e.g. FID-TN-2026-8812" value="FID-TN-2026-8812" required>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem;">
+                  Format: FID-TN-YYYY-XXXX or AGRI-XXXXXXXX. (Tip: Enter 'FID-REJECT-TEST' to test failure rule)
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Full Legal Name (as in Land Records)</label>
+                <input type="text" id="inputAgristackName" class="form-control" value="Ramesh Singh Kumar" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;" id="btnVerifyAgristack">
+                🆔 Submit for AgriStack Verification
+              </button>
+            </form>
+          </div>
+
+          <!-- Status & Land Registry Card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title"><i class="fas fa-shield-halved"></i> Verification Status & Details</div>
+            </div>
+
+            <div id="agristackStatusBox" style="padding: 1rem; border-radius: 12px; background: #FBF5E8; border: 1px solid rgba(164,157,113,0.4); line-height: 1.8; font-size: 0.9rem;">
+              <div><strong>Status:</strong> <span class="badge badge-success" id="asStatusBadge">VERIFIED</span></div>
+              <div><strong>AgriStack ID:</strong> <span style="font-family: monospace; font-weight: 700; color: #6E6042;" id="asDisplayId">FID-TN-2026-8812</span></div>
+              <div><strong>Verified Farmer Name:</strong> <span id="asDisplayName">Ramesh Singh Kumar</span></div>
+              <div><strong>Land Record Registry:</strong> <span id="asDisplayLand">TN-LND-99120 (Madurai District)</span></div>
+              <div><strong>Procurement Portal Access:</strong> <span class="badge badge-success" id="asAccessBadge">ALLOWED</span></div>
+            </div>
+
+            <div style="margin-top: 1rem; font-size: 0.8rem; color: #6E6042; line-height: 1.6; background: #FBF3E0; border: 1px solid rgba(227,179,116,0.4); padding: 0.75rem; border-radius: 10px;">
+              ℹ️ <strong>AgriStack Compliance:</strong> Production deployment plugs directly into official government servers (https://agristack.gov.in/). Unverified farmers are blocked from generating selling slot passes until verified.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 10: Logistics & Transport System -->
+      <div id="farmerSub-logistics" class="farmer-panel" style="display: none;">
+        <div class="grid-2">
+          <!-- Request Logistics Form -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title"><i class="fas fa-truck-ramp-box"></i> Request Crop Transport Vehicle</div>
+              <span class="badge badge-success">GPS Fleet Tracking</span>
+            </div>
+
+            <form id="logisticsRequestForm">
+              <div class="form-group">
+                <label class="form-label">Link to Booked Selling Slot / Stockyard</label>
+                <select id="logisticsBookingSelect" class="form-control">
+                  <option value="">Select an active booking (optional)...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Pickup Location / Farm Address</label>
+                <input type="text" id="logisticsPickup" class="form-control" value="Melur Village, Madurai District" placeholder="Enter farm or village location..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Drop Destination (Mandi / Stockyard)</label>
+                <select id="logisticsDrop" class="form-control" required></select>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label">Vehicle Type Required</label>
+                  <select id="logisticsVehicleType" class="form-control" required>
+                    <option value="TRACTOR_TROLLEY" selected>🚜 Tractor Trolley (Up to 10 MT)</option>
+                    <option value="MINI_TRUCK">🚚 Mini Commercial Truck (3.5 MT)</option>
+                    <option value="HEAVY_TRUCK">🚛 Heavy Multi-Axle Truck (25 MT)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Estimated Cargo Weight (Kg)</label>
+                  <input type="number" id="logisticsWeightKg" class="form-control" min="100" max="30000" value="6500" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Estimated Distance (Km)</label>
+                <input type="number" id="logisticsDistanceKm" class="form-control" min="1" max="500" value="35" onchange="calculateLogisticsCostPreview()" required>
+              </div>
+
+              <div style="background: linear-gradient(135deg, #3E4A42 0%, #2F3834 100%); color: #FBF6EA; padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 0.75rem; color: #D9CDB2;">Estimated Transport Cost</div>
+                  <div style="font-size: 1.4rem; font-weight: 900; color: #F6D19A;" id="logisticsCostPreview">₹2,850</div>
+                </div>
+                <span class="badge" style="background: rgba(246,209,154,0.25); color: #F6D19A;">Govt Tariff Rates</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                🚚 Request Transport & Assign Transporter
+              </button>
+            </form>
+          </div>
+
+          <!-- Live Logistics Status Tracker Card -->
+          <div>
+            <div class="card" style="background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA; margin-bottom: 1rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem; color: #F6D19A;">📡 Real-Time Transport Tracker</h3>
+              <p style="font-size: 0.85rem; color: #E4DAC2;">Status updates push directly to your screen via WebSockets without page refresh.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><i class="fas fa-route"></i> My Active Logistics Requests</div>
+                <button class="btn btn-outline" style="font-size: 0.75rem; padding: 0.2rem 0.5rem;" onclick="loadMyLogisticsRequests()">🔄 Refresh</button>
+              </div>
+
+              <div id="logisticsTrackerContainer">
+                <!-- Dynamically rendered by app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 11: Government Schemes Information -->
+      <div id="farmerSub-govt-schemes" class="farmer-panel" style="display: none;">
+        <div class="card" style="margin-bottom: 1.5rem; background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.6rem; font-weight: 900; color: #F6D19A; margin-bottom: 0.3rem; font-family: 'Playfair Display', Georgia, serif;"><i class="fas fa-landmark"></i> Government Agriculture Schemes Directory</h2>
+              <p style="font-size: 0.9rem; color: #D9CDB2;">Central & State welfare schemes, subsidies, income support, and official portal links.</p>
+            </div>
+            <div class="category-pills-wrapper" id="schemesCategoryFilter">
+              <button class="pill-btn active" data-schemecat="ALL">All Schemes</button>
+              <button class="pill-btn" data-schemecat="Direct Income Support">Income Support</button>
+              <button class="pill-btn" data-schemecat="Crop Insurance">Insurance</button>
+              <button class="pill-btn" data-schemecat="Credit & Financing">Credit / KCC</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" id="govtSchemesGrid">
+          <!-- Dynamically rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET OFFICER VIEW ================= -->
+    <section id="officerView" class="view-panel">
+      <!-- Admin Stats Grid -->
+      <div class="grid-4" style="margin-bottom: 1.5rem;">
+        <div class="card" style="margin-bottom: 0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;" data-i18n="gateEntry">GATE ENTRY</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #68786E;" id="adminStatGate">0</div>
+          <div style="font-size: 0.75rem; color: #6E6042;" data-i18n="vehiclesInside">Vehicles Inside Market</div>
+        </div>
+        <div class="card" style="margin-bottom: 0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;" data-i18n="qualityTesting">QUALITY TESTING</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #A49D71;" id="adminStatQuality">0</div>
+          <div style="font-size: 0.75rem; color: #6E6042;" data-i18n="moistureCheck">Moisture Check</div>
+        </div>
+        <div class="card" style="margin-bottom: 0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;" data-i18n="weightScales">WEIGHT SCALES</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #BE6638;" id="adminStatWeigh">0</div>
+          <div style="font-size: 0.75rem; color: #6E6042;" data-i18n="scaleDockLogging">Scale Dock Logging</div>
+        </div>
+        <div class="card" style="margin-bottom: 0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;" data-i18n="paymentsSent">PAYMENTS SENT</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #55645B;" id="adminStatPaid">0</div>
+          <div style="font-size: 0.75rem; color: #6E6042;" data-i18n="directBankPayments">Direct Bank Payments</div>
+        </div>
+      </div>
+
+      <!-- Export & Reports Toolbar -->
+      <div class="card" style="background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA; margin-bottom: 1.5rem;">
+        <div class="card-header" style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+          <div class="card-title" style="color: #FBF6EA;" data-i18n="officerReportsTitle">📊 Market Officer Reports & Data Exports</div>
+          <span class="badge" style="background: rgba(246,209,154,0.25); color: #F6D19A;" data-i18n="officialBadge">Uzhavar Mutram Official</span>
+        </div>
+        <!-- Date-Range Filter Controls -->
+        <div style="background: rgba(0, 0, 0, 0.2); padding: 0.8rem 1rem; border-radius: 8px; margin-top: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: #e2e8f0;" data-i18n="dateFrom">📅 From:</label>
+            <input type="date" id="exportStartDate" class="form-control" style="width: auto; padding: 0.3rem 0.6rem; background: #F6D19A; color: #2F3834; font-size: 0.85rem; border: none;" onchange="applyDateFilter()">
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label style="font-size: 0.85rem; font-weight: 600; color: #e2e8f0;" data-i18n="dateTo">📅 To:</label>
+            <input type="date" id="exportEndDate" class="form-control" style="width: auto; padding: 0.3rem 0.6rem; background: #F6D19A; color: #2F3834; font-size: 0.85rem; border: none;" onchange="applyDateFilter()">
+          </div>
+          <button class="btn" style="background: rgba(255,255,255,0.2); color: #ffffff; padding: 0.3rem 0.8rem; font-size: 0.85rem;" onclick="resetDateFilter()" data-i18n="clearFilter">
+            🔄 Clear Filter
+          </button>
+          <div id="exportFilterSummary" style="font-size: 0.8rem; color: #F6D19A; font-weight: 700; margin-left: auto;" data-i18n="showingAllRecords">
+            Showing All Records
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem;">
+          <button class="btn" style="background: #F6D19A; color: #2F3834; font-weight: 700;" onclick="exportGateLogsCSV()" data-i18n="exportGateCSV">
+            📤 Export Gate Logs (CSV)
+          </button>
+          <button class="btn" style="background: #F6D19A; color: #2F3834; font-weight: 700;" onclick="exportWeightRecordsCSV()" data-i18n="exportWeightCSV">
+            ⚖️ Export Weight Records (CSV)
+          </button>
+          <button class="btn" style="background: #BE6638; color: #ffffff; font-weight: 700;" onclick="exportGateLogsPDF()" data-i18n="exportGatePDF">
+            📄 Generate Gate Entry Report (PDF)
+          </button>
+          <button class="btn" style="background: #68786E; color: #ffffff; font-weight: 700;" onclick="exportWeightRecordsPDF()" data-i18n="exportWeightPDF">
+            📜 Generate Weighbridge Log (PDF)
+          </button>
+        </div>
+      </div>
+
+      <!-- Queue Control Card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title" data-i18n="cropMarketLineTitle">🏢 Crop Market Line & Queue Controller</div>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="text" id="adminTokenSearch" class="form-control" style="width: 250px; padding: 0.4rem 0.8rem;" placeholder="Search Token / Farmer / Vehicle..." data-i18n-placeholder="searchTokenFarmerPlaceholder">
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-i18n="thToken">Token #</th>
+                <th data-i18n="thFarmer">Farmer Name</th>
+                <th data-i18n="thCropQty">Crop & Quantity</th>
+                <th data-i18n="thVehicle">Vehicle Reg.</th>
+                <th data-i18n="thStatus">Current Status</th>
+                <th data-i18n="thDock">Assigned Scale Dock</th>
+                <th data-i18n="thActions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTokensTbody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      <!-- AgriStack Verification Review Queue Card -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <div class="card-title"><i class="fas fa-user-shield"></i> AgriStack Digital Farmer ID Review Queue & Override</div>
+          <span class="badge badge-info">Authorised Officer Control</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Farmer Name</th>
+                <th>Credential / Mobile</th>
+                <th>District</th>
+                <th>Aadhaar</th>
+                <th>AgriStack ID</th>
+                <th>Verification Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="officerVerificationTbody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Logistics Fleet Dispatch & Transport Management Card -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <div class="card-title"><i class="fas fa-truck-ramp-box"></i> Logistics Fleet Dispatch & Transport Controller</div>
+          <button class="btn btn-outline" style="font-size: 0.8rem; padding: 0.3rem 0.6rem;" onclick="openAddTransporterModal()">+ Add Transporter</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Farmer Name</th>
+                <th>Pickup & Destination</th>
+                <th>Cargo Weight</th>
+                <th>Assigned Transporter</th>
+                <th>Status</th>
+                <th>Update Status</th>
+              </tr>
+            </thead>
+            <tbody id="officerLogisticsTbody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Government Schemes Admin Manager Card -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <div class="card-title"><i class="fas fa-landmark"></i> Government Schemes Authorised Data Manager</div>
+          <button class="btn btn-primary" style="font-size: 0.8rem; padding: 0.3rem 0.6rem;" onclick="openAddSchemeModal()">+ Add New Scheme</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Scheme Title</th>
+                <th>Category</th>
+                <th>Benefit Amount</th>
+                <th>Eligibility</th>
+                <th>Official Gov Portal URL</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="officerSchemesTbody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= WHOLESALE BUYER PORTAL VIEW ================= -->
+    <section id="buyerView" class="view-panel">
+      <!-- Buyer Header Card -->
+      <div class="card" style="background: linear-gradient(135deg, #55645B 0%, #3E4A42 100%); color: #FBF6EA; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="font-size: 1.4rem; font-weight: 900; color: #F6D19A; font-family: 'Playfair Display', Georgia, serif;" id="buyerWelcomeTitle" data-i18n="buyerWelcomeTitle">🛒 Wholesale Crop Buyer & Trader Portal</div>
+            <div style="font-size: 0.85rem; color: #D9CDB2; margin-top: 0.2rem;" data-i18n="buyerDesc">Direct E-Auction Bidding, Verified Stockyard Purchases & Govt MSP Compliance</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.75rem; color: #F3D9A8; text-transform: uppercase;">Verified Trade Account</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #ffffff;" id="buyerAccountName">AgriCorp Traders Pvt Ltd</div>
+            <span class="badge" style="background: #BE6638; color: white;">GSTIN: 06AAAAA0000A1Z5</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buyer Stats Grid -->
+      <div class="grid-4" style="margin-bottom: 1.5rem;">
+        <div class="card" style="margin-bottom:0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">ACTIVE AUCTIONS</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #68786E;">14</div>
+          <div style="font-size: 0.75rem; color: #6E6042;">Live Crop Batches</div>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">MY BIDS</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #A49D71;" id="buyerActiveBidsCount">3</div>
+          <div style="font-size: 0.75rem; color: #6E6042;">Pending E-Auctions</div>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">ESCROW BALANCE</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #BE6638;">₹12,50,000</div>
+          <div style="font-size: 0.75rem; color: #6E6042;">Available Trading Limit</div>
+        </div>
+        <div class="card" style="margin-bottom:0;">
+          <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">STOCKYARD CONTRACTS</div>
+          <div style="font-size: 2rem; font-weight: 900; color: #55645B;">5</div>
+          <div style="font-size: 0.75rem; color: #6E6042;">Direct Storage Releases</div>
+        </div>
+      </div>
+
+      <!-- Live Crop Bidding Board -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🌾 Live Crop Bulk Auctions & MSP Direct Purchase</div>
+          <div style="font-size: 0.85rem; color: #BE6638; font-weight: 700;">Verified Farmers Direct Marketplace</div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-i18n="thBatch">Batch #</th>
+                <th data-i18n="thCropVariety">Crop Variety</th>
+                <th data-i18n="thSeller">Seller Farmer</th>
+                <th data-i18n="thAvailableQty">Available Quantity</th>
+                <th data-i18n="thBaseMsp">Base MSP Rate</th>
+                <th data-i18n="thHighestBid">Current Highest Bid</th>
+                <th data-i18n="thAction">Action</th>
+              </tr>
+            </thead>
+            <tbody id="buyerAuctionsTbody">
+              <!-- Rendered dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PUBLIC KIOSK VIEW ================= -->
+    <section id="kioskView" class="view-panel">
+      <div class="kiosk-wrapper">
+        <div class="kiosk-header">
+          <div>
+            <div class="kiosk-title" id="kioskMarketTitle">KOYAMBEDU WHOLESALE MARKET COMPLEX</div>
+            <div style="color: #C9D2B8; font-size: 0.9rem;" data-i18n="kioskSubtitle">Real-Time Public Display & Vehicle Dock Queue Board</div>
+          </div>
+          <div class="kiosk-clock" id="kioskClock">00:00:00 AM</div>
+        </div>
+
+        <!-- Dock Grid -->
+        <div class="dock-grid" id="kioskDockGrid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Live Announcement Ticker -->
+        <div class="ticker-bar">
+          <span class="ticker-tag" data-i18n="liveAnnouncementTag">LIVE ANNOUNCEMENT</span>
+          <marquee style="font-size: 1.1rem; font-weight: 600;" scrollamount="6" id="kioskAnnouncementTicker">
+            📢 Attention Farmers: Tokens #101 & #102 please proceed to Weight Scale Dock 1 & Dock 2 immediately. Government Paddy MSP rate is ₹2,300/Quintal (100kg). Please ensure crop moisture level is below 14%.
+          </marquee>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Containers for Auth, Guest Entrance & Admin Pass Receipts -->
+  <div id="welcomeEntranceModalContainer"></div>
+  <div id="loginModalContainer"></div>
+  <div id="adminModalContainer"></div>
+  <div id="ekycModalContainer"></div>
+  <div id="transporterModalContainer"></div>
+  <div id="schemeModalContainer"></div>
+  <!-- Modal Container for Voice Command Engine -->
+  <div id="voiceCommandModalContainer"></div>
+
+  <!-- Floating Customer Care Quick Access Button -->
+  <button id="floatingHelpBtn" class="floating-help-btn" onclick="openCustomerCareTab()">
+    💬 <span data-i18n="customerCare">24x7 Helpline</span>
+  </button>
+
+  <!-- AI Conversational Operator Chatbot Floating Widget -->
+  <button id="chatbotFab" class="chatbot-fab" onclick="toggleChatbot()" title="Uzhavar Mutram AI Operator">
+    <i class="fas fa-robot chatbot-fab-icon" style="font-size:1.25rem; color:#F6D19A;"></i>
+    <span class="chatbot-fab-badge" data-i18n="chatbotTitle">AI Operator</span>
+  </button>
+
+  <div id="chatbotDrawer" class="chatbot-drawer hidden">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <span class="chatbot-header-avatar">🤖</span>
+        <div>
+          <div class="chatbot-header-title"><i class="fas fa-robot"></i> <span data-i18n="chatbotTitle">Uzhavar Mutram AI Operator</span></div>
+          <div class="chatbot-header-subtitle" data-i18n="chatbotSubtitle">Voice & Conversational Booking Assistant</div>
+        </div>
+      </div>
+      <div class="chatbot-header-actions">
+        <button class="chatbot-voice-toggle" id="chatVoiceToggleBtn" title="Toggle Voice Responses" onclick="toggleChatVoice()">🔊</button>
+        <button class="chatbot-close-btn" onclick="toggleChatbot()">✕</button>
+      </div>
+    </div>
+    
+    <div class="chatbot-body" id="chatStream">
+      <!-- Dynamic conversation messages & action cards -->
+    </div>
+
+    <div class="chatbot-quick-chips" id="chatChips">
+      <button class="chat-chip" onclick="handleChipClick('Book selling slot')" data-i18n="bookSlot">🌾 Book Slot</button>
+      <button class="chat-chip" onclick="handleChipClick('Check live crop prices')" data-i18n="marketPrices">📈 Market Prices</button>
+      <button class="chat-chip" onclick="handleChipClick('Check storage availability')" data-i18n="stockyard">🏭 Storage Rental</button>
+      <button class="chat-chip" onclick="handleChipClick('Track live queue status')" data-i18n="queueTracker">⏱️ Queue Status</button>
+    </div>
+
+    <form id="chatbotForm" class="chatbot-input-bar" onsubmit="handleChatSubmit(event)">
+      <button type="button" class="btn" style="background: #68786E; color: white; padding: 0.5rem 0.8rem; border-radius: 8px;" onclick="openVoiceCommandModal()" title="Voice Command">🎙️</button>
+      <input type="text" id="chatInput" class="chat-input" placeholder="Ask me to book a slot, check prices, or find storage..." data-i18n-placeholder="chatPlaceholder" autocomplete="off" />
+      <button type="submit" id="chatSendBtn" class="chat-send-btn">
+        <span data-i18n="sendBtn">Send</span> ➤
+      </button>
+    </form>
+  </div>
+
+  <!-- Simulated Mobile SMS Drawer Popup -->
+  <div id="smsDrawer" class="sms-drawer">
+    <div class="sms-header">
+      <div class="sms-title">
+        <span>💬</span> <span data-i18n="mobileSmsAlertsTitle">SMS Alert Simulator</span> (+91 98765 43210)
+      </div>
+      <button id="smsCloseBtn" class="sms-close">✕</button>
+    </div>
+    <div class="sms-body">
+      <div class="sms-bubble">
+        <p id="smsBodyText">Dear Farmer, your crop selling slot has been confirmed.</p>
+        <div class="sms-time" id="smsTimeText">08:30 AM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="data.js?v=2.2"></script>
+  <script src="api.js?v=2.2"></script>
+  <script src="app.js?v=2.2"></script>
+</body>
+</html>
