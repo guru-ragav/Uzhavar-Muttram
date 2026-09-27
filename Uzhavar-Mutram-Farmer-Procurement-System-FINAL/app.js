@@ -873,7 +873,7 @@ function toggleCropGuide() {
     if (btn) btn.innerHTML = '📖 Visual Crop Guide';
   } else {
     embed.style.display = 'block';
-    iframe.src = '/crop-guide.html';
+    iframe.src = './crop-guide.html';
     if (btn) btn.innerHTML = '✕ Close Crop Guide';
     embed.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
