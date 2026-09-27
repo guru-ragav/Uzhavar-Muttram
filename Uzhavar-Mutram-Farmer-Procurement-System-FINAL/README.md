@@ -1,5 +1,7 @@
 # Uzhavar Mutram — Farmer Procurement & Smart Storage System
 
+**🌐 Live app (GitHub Pages):** https://guru-ragav.github.io/Uzhavar-Muttram/
+
 Production-ready Node.js + Express + SQLite backend connected to the responsive web frontend.
 
 ---
